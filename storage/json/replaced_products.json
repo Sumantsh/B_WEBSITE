@@ -1,0 +1,134 @@
+[
+    {
+        "prd_name": "Red Shoes",
+        "prd_image": "img/products/Viagra.jpg",
+        "prd_min_price": "43.44",
+        "prd_max_price": "343.70"
+    },
+    {
+        "prd_name": "Green Shoes",
+        "prd_image": "img/products/Viagra-–-professional.jpg",
+        "prd_min_price": "52.60",
+        "prd_max_price": "162.40"
+    },
+    {
+        "prd_name": "Men's Shirt",
+        "prd_image": "img/products/Cialis.jpg",
+        "prd_min_price": "49.50",
+        "prd_max_price": "435.40"
+    },
+    {
+        "prd_name": "Chelsea Boots",
+        "prd_image": "img/products/Viagra-With-Dapoxetine.jpg",
+        "prd_min_price": "122.64",
+        "prd_max_price": "905.80"
+    },
+    {
+        "prd_name": "Women's Shoes",
+        "prd_image": "img/products/Levitra.jpg",
+        "prd_min_price": "59.80",
+        "prd_max_price": "425.40"
+    },
+    {
+        "prd_name": "Nike Shoes",
+        "prd_image": "img/products/Cialis-Super-Active.jpg",
+        "prd_min_price": "65.50",
+        "prd_max_price": "335.70"
+    },
+    {
+        "prd_name": "Red Chief Boots",
+        "prd_image": "img/products/Cialis-Super-Active.jpg",
+        "prd_min_price": "96.40",
+        "prd_max_price": "420.40"
+    },
+    {
+        "prd_name": "Men's Trousers",
+        "prd_image": "img/products/Viagra-Super-Active.jpg",
+        "prd_min_price": "54.70",
+        "prd_max_price": "465.90"
+    },
+    {
+        "prd_name": "Rayban Sunglasses",
+        "prd_image": "img/products/Sildalist.jpg",
+        "prd_min_price": "49.50",
+        "prd_max_price": "385.70"
+    },
+    {
+        "prd_name": "Women's Trousers",
+        "prd_image": "img/products/Brand-Viagra.jpg",
+        "prd_min_price": "90.00",
+        "prd_max_price": "649.80"
+    },
+    {
+        "prd_name": "Men's Carry Bag",
+        "prd_image": "img/products/Viagra-Soft-Tabs.jpg",
+        "prd_min_price": "59.00",
+        "prd_max_price": "68.00"
+    },
+    {
+        "prd_name": "Travel Bag",
+        "prd_image": "img/products/Brand-Cialis.jpg",
+        "prd_min_price": "115.00",
+        "prd_max_price": "699.40"
+    },
+    {
+        "prd_name": "Women's Bracelets",
+        "prd_image": "img/products/Suhagra.jpg",
+        "prd_min_price": "55.10",
+        "prd_max_price": "175.50"
+    },
+    {
+        "prd_name": "Men's Formal Cuff Links",
+        "prd_image": "img/products/Cialis-Professional.jpg",
+        "prd_min_price": "65.00",
+        "prd_max_price": "215.60"
+    },
+    {
+        "prd_name": "Neck Ties",
+        "prd_image": "img/products/Viagra-Plus.jpg",
+        "prd_min_price": "65.10",
+        "prd_max_price": "240.40"
+    },
+    {
+        "prd_name": "Women's Earrings",
+        "prd_image": "img/products/Viagra-With-Fluoxetine.jpg",
+        "prd_min_price": "65.40",
+        "prd_max_price": "385.00"
+    },
+    {
+        "prd_name": "Wallets and purses",
+        "prd_image": "img/products/Cialis-Soft-Tabs.jpg",
+        "prd_min_price": "45.20",
+        "prd_max_price": "365.40"
+    },
+    {
+        "prd_name": "Blue Shoes",
+        "prd_image": "img/products/Cialis-Oral-Jelly.jpg",
+        "prd_min_price": "66.00",
+        "prd_max_price": "66.00"
+    },
+    {
+        "prd_name": "Women's Perfume",
+        "prd_image": "img/products/Levitra-Professional.jpg",
+        "prd_min_price": "105.20",
+        "prd_max_price": "462.50"
+    },
+    {
+        "prd_name": "Women's Bag",
+        "prd_image": "img/products/Levitra-With-Dapoxetine.jpg",
+        "prd_min_price": "220.30",
+        "prd_max_price": "1099.10"
+    },
+    {
+        "prd_name": "Men's Perfume",
+        "prd_image": "img/products/Cialis-Oral-Jelly-orange.jpg",
+        "prd_min_price": "70.60",
+        "prd_max_price": "348.50"
+    },
+    {
+        "prd_name": "Wrist Watch",
+        "prd_image": "img/products/Levitra-Oral-Jelly.jpg",
+        "prd_min_price": "128.40",
+        "prd_max_price": "492.40"
+    }
+]
