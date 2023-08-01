@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string("prd_name");
-            $table->string("prd_dis");
             $table->string("prd_image");
             $table->decimal("prd_min_price");
             $table->decimal("prd_max_price");
