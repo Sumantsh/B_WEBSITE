@@ -85,14 +85,16 @@ img {
 
 #formwrapper {
     display: flex;
-    /* gap: 50px; */
+    gap: 50px;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     margin: 2% 0px;
+    padding: 10px;
 }
 
 .leftformwrapper {
-    width: 55%;
+    /* width: 55%; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,7 +105,7 @@ img {
 
     display: flex;
     flex-direction: column;
-    /* width: 500px; */
+    width: 100%;
     /* background-color: rgba(0, 0, 255,.2); */
     background-color: rgb(106, 171, 201,.7);
     padding-bottom: 4%;
@@ -117,7 +119,7 @@ img {
     flex-direction: column;
     text-align: left;
     padding: 10px;
-    width: 600px;
+    /* width: 600px; */
 }
 
 .state_input {
@@ -175,7 +177,7 @@ input {
 }
 
 .rightwrapper {
-    width: 35%;
+    /* width: 35%; */
     background-color: rgb(106, 171, 201);
     padding: 10px 50px 50px 50px;
     position: sticky;
