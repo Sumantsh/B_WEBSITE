@@ -67,7 +67,7 @@ class PayPalPaymentController extends Controller
                 return redirect()->away($approveLink);
             } else {
                 // Handle the case when 'approve' link is not found in the response
-                Session::put('error', 'Approval link not found in the PayPal response.');
+                Session::flash('error', 'Approval link not found in the PayPal response.');
                 return redirect()->route('paypal.error');
             }
         } catch (\PayPalHttp\HttpException $e) {
