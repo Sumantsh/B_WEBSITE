@@ -2,6 +2,8 @@
 
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PayPalPaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +20,17 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('checkoutpage');
-});
+// Route::get('/', function () {
+// <<<<<<< dev_s
+//     return view('checkoutpage');
+// });
 
-Route::get('/form', function () {
+Route::get('/', function () {
     return view('formcheckout');
 });
+
+Route::get("/pay/{id}/{qty}/{mg}", [PaymentController::class, 'product']);
+
 
 
 
@@ -44,3 +50,12 @@ Route::get("/add", function() {
 
     echo "Okay";
 });
+
+Route::get("/payment", function() {
+    return view('product');
+}); 
+
+Route::get('/paypal/create-payment', [PayPalPaymentController::class, 'createPayment'])->name('paypal.create');
+Route::get('/paypal/success', [PayPalPaymentController::class, 'success'])->name('paypal.success');
+Route::get('/paypal/cancel',  [PayPalPaymentController::class, 'cancel'])->name('paypal.cancel');
+Route::get('/paypal/error', [PayPalPaymentController::class, 'error'])->name('paypal.error');
