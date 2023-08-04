@@ -4,7 +4,6 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PayPalPaymentController;
-use Srmklive\PayPal\Facades\PayPal;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +18,7 @@ use Srmklive\PayPal\Facades\PayPal;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name("home");
 
 
 Route::get("/pay/{id}/{qty}/{mg}", [PaymentController::class, 'product']);
@@ -45,6 +44,7 @@ Route::get("/payment", function() {
     return view('product');
 }); 
 
-Route::get('handle-payment', [PayPalPaymentController::class, 'handlePayment'])->name('make.payment');
-Route::get('cancel-payment', [PayPalPaymentController::class, 'paymentCancel'])->name('cancel.payment');
-Route::get('payment-success', [PayPalPaymentController::class, 'paymentSuccess'])->name('success.payment');
+Route::get('/paypal/create-payment', [PayPalPaymentController::class, 'createPayment'])->name('paypal.create');
+Route::get('/paypal/success', [PayPalPaymentController::class, 'success'])->name('paypal.success');
+Route::get('/paypal/cancel',  [PayPalPaymentController::class, 'cancel'])->name('paypal.cancel');
+Route::get('/paypal/error', [PayPalPaymentController::class, 'error'])->name('paypal.error');
