@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('checkoutpage');
-});
+// Route::get('/', function () {
+//     return view('checkoutpage');
+// });
 
-Route::get('/form', function () {
+Route::get('/', function () {
     return view('formcheckout');
 });
 
