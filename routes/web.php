@@ -16,12 +16,23 @@ use App\Http\Controllers\PayPalPaymentController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name("home");
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+// Route::get('/', function () {
+// <<<<<<< dev_s
+//     return view('checkoutpage');
+// });
+
+Route::get('/', function () {
+    return view('formcheckout');
+});
 
 Route::get("/pay/{id}/{qty}/{mg}", [PaymentController::class, 'product']);
+
+
+
 
 
 Route::get("/add", function() {
