@@ -22,10 +22,26 @@
 
     <div id="formwrapper">
 
+
+        
+        <div class="rightwrapper">
+            <div class="cart_icon">
+                <i class="fa-solid fa-cart-arrow-down"></i>
+                <h2>Cart Summary</h2>
+            </div>
+
+            <div class="order">
+                <p><span class="qnty">1+</span> <span class="product_name">Lorem ipsum, </span> </p>
+                <h2 class="item_price">$ <span>99</span></h2>
+            </div>
+        </div>
+
+
         <div class="leftformwrapper">
 
 
             <form action="" id="form1">
+                @csrf
 
                 <div class="input">
                     <label for="">First & Last Name</label>
@@ -83,21 +99,11 @@
             </form>
         </div>
 
-        <div class="rightwrapper">
-            <div class="cart_icon">
-                <i class="fa-solid fa-cart-arrow-down"></i>
-                <h2>Cart Summary</h2>
-            </div>
-
-            <div class="order">
-                <p><span class="qnty">1+</span> <span class="product_name">Lorem ipsum, dolor sit amet consectetur</span> </p>
-                <h2>$ <span>99</span></h2>
-            </div>
-        </div>
-
     </div>
 
 
 </body>
+
+<script src="{{ asset ('js/new.js')}}"></script>
 
 </html>
