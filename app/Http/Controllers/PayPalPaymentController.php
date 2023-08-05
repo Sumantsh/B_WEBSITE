@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\NewOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
@@ -85,24 +86,30 @@ class PayPalPaymentController extends Controller
     public function cancel()
     {
     // You can display a message to the user or redirect them to a specific page
-    Session::put('error', 'Payment was canceled by the user.');
-    return redirect()->route('paypal.error');
+        Session::put('error', 'Payment was canceled by the user.');
+        return redirect()->route('paypal.error');
     }
 
 
     public function success(Request $request)
     {
-        // Process the successful payment here
-        // For example, you can check the payment status and update your database
 
-        // Get the PayPal order ID from the query parameters
         $orderId = $request->input('token');
 
-        // Assuming you store the payment details in the database, you can update the payment status
-        // Replace this with your database update logic
-        // Example: Payment::where('order_id', $orderId)->update(['status' => 'completed']);
+        $formdata = Session::get('formdata');
+        $orderDetails = Session::get('orderDetails');
 
-        // Display a success message to the user
+        NewOrder::create([
+            'orderID' => $orderId,
+            'name' => $formdata['name'],
+            'email' => $formdata['email'],
+            'phone' => $formdata['phoneNumber'],
+            'address' => $formdata['address'] . ", ". $formdata['state'] . ", " . $formdata['country'] . ", " . $formdata['zip'],
+            'qty' => $orderDetails['qty'],
+            'mg' => $orderDetails['mg'],
+            'prdID' => $orderDetails['prdID']
+        ]);
+        
         Session::flash('success', 'Payment successful! Thank you for your purchase.');
         return redirect()->route('home'); // Replace 'home' with the desired route after successful payment
     }
