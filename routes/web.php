@@ -16,16 +16,28 @@ use App\Http\Controllers\PayPalPaymentController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/service', function () {
+    return view('service');
+});
 
 // Route::get('/', function () {
 // <<<<<<< dev_s
 //     return view('checkoutpage');
 // });
 
-Route::get('/', function () {
+Route::get('/formcheckout', function () {
     return view('formcheckout');
 });
 

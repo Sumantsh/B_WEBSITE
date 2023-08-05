@@ -1,22 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Checkout Form</title>
-</head>
 
-<style>
-    body {
-        /* background-color: rgba(0 0 0 /.8); */
-    }
-</style>
+@include('header')
 
-<body>
 
     <h2 class="bill_heading">Billing Details</h2>
 
@@ -91,13 +78,11 @@
 
             <div class="order">
                 <p><span class="qnty">1+</span> <span class="product_name">Lorem ipsum, dolor sit amet consectetur</span> </p>
-                <h2>$ <span>99</span></h2>
+                <h2 style="color: white">$ <span>99</span></h2>
             </div>
         </div>
 
     </div>
 
 
-</body>
-
-</html>
+@include('footer')
