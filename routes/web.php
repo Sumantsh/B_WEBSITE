@@ -1,9 +1,12 @@
 <?php
 
 use App\Models\Product;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PayPalPaymentController;
+use Illuminate\Contracts\Session\Session;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,24 +19,11 @@ use App\Http\Controllers\PayPalPaymentController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/', function () {
-// <<<<<<< dev_s
-//     return view('checkoutpage');
-// });
-
 Route::get('/', function () {
-    return view('formcheckout');
-});
+    return view('welcome');
+})->name("home");
 
-Route::get("/pay/{id}/{qty}/{mg}", [PaymentController::class, 'product']);
-
-
-
-
+Route::get("/pay", [PaymentController::class, 'product']);
 
 Route::get("/add", function() {
     $jsonFile = file_get_contents(storage_path("json/replaced_products.json"));
@@ -53,6 +43,16 @@ Route::get("/add", function() {
 
 Route::get("/payment", function() {
     return view('product');
+}); 
+
+Route::post("/form-route", function(Request $request) {
+    try {
+        Session()->put('formdata', $request->all());
+        return response()->json(['message' => 'Success']);
+    } catch (\Exception $e) {
+        // Log the exception or handle it appropriately
+        return response()->json(['error' => 'Something went wrong'], 500);
+    }
 }); 
 
 Route::get('/paypal/create-payment', [PayPalPaymentController::class, 'createPayment'])->name('paypal.create');
