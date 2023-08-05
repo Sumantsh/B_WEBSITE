@@ -25,7 +25,23 @@
 
     <div id="formwrapper">
 
+
+        
+        <div class="rightwrapper">
+            <div class="cart_icon">
+                <i class="fa-solid fa-cart-arrow-down"></i>
+                <h2>Cart Summary</h2>
+            </div>
+
+            <div class="order">
+                <p><span class="qnty">1+</span> <span class="product_name">Lorem ipsum, </span> </p>
+                <h2 class="item_price">$ <span>99</span></h2>
+            </div>
+        </div>
+
+
         <div class="leftformwrapper">
+
 
 
             <form id="form1">
@@ -84,22 +100,12 @@
             </form>
         </div>
 
-        <div class="rightwrapper">
-            <div class="cart_icon">
-                <i class="fa-solid fa-cart-arrow-down"></i>
-                <h2>Cart Summary</h2>
-            </div>
-
-            <div class="order">
-                <p><span class="qnty">1+</span> <span class="product_name">Lorem ipsum, dolor sit amet consectetur</span> </p>
-                <h2>$ <span>99</span></h2>
-            </div>
-        </div>
-
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
+
+<script src="{{ asset ('js/new.js')}}"></script>
 
 </html>
