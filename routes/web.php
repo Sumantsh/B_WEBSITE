@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Product;
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PayPalPaymentController;
@@ -26,8 +27,34 @@ use App\Http\Controllers\PayPalPaymentController;
 // });
 
 Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/service', function () {
+    return view('service');
+});
+
+Route::get('/formcheckout', function () {
     return view('formcheckout');
 });
+
+Route::get('/ed', function () {
+
+    
+
+});
+
+
+
+
 
 Route::get("/pay", [PaymentController::class, 'product']);
 
