@@ -119,11 +119,7 @@ img {
     flex-direction: column;
     text-align: left;
     padding: 10px;
-    width: 100%;
-}
-
-#form1 .input label {
-    color: #666;
+    width: 600px;
 }
 
 .state_input {
@@ -216,6 +212,8 @@ input:focus {
 }
 
 
+.item_price {
+}
 
 .order {
     display: flex;
@@ -229,6 +227,20 @@ input:focus {
 .order p {
     width: 70%;
     padding-left: 10px ;
+}
+
+@media (min-width:768px) {
+    
+    #formwrapper {
+        flex-direction: row-reverse;
+    }
+
+    #form1 {
+        width: 600px;
+    }
+
+
+
 }
 
 @media (min-width:768px) {

@@ -1,12 +1,9 @@
 <?php
 
 use App\Models\Product;
-use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PayPalPaymentController;
-use Illuminate\Contracts\Session\Session;
-use Illuminate\Http\Client\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,43 +16,20 @@ use Illuminate\Http\Client\Response;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-Route::get('/service', function () {
-    return view('service');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/', function () {
 // <<<<<<< dev_s
 //     return view('checkoutpage');
 // });
 
-Route::get('/formcheckout', function () {
+Route::get('/', function () {
     return view('formcheckout');
 });
 
-Route::get('/ed', function (Request $request) {
-    
-    session()->put('site_a_data', $request->all() );
-    return response()->json(['message' => 'success'], 201);   
-});
-
-
-Route::get("/pay/{id}/{qty}/{mg}", [PaymentController::class, 'product']);
-
-
-
-
+Route::get("/pay", [PaymentController::class, 'product']);
 
 Route::get("/add", function() {
     $jsonFile = file_get_contents(storage_path("json/replaced_products.json"));
@@ -75,6 +49,16 @@ Route::get("/add", function() {
 
 Route::get("/payment", function() {
     return view('product');
+}); 
+
+Route::post("/form-route", function(Request $request) {
+    try {
+        Session()->put('formdata', $request->all());
+        return response()->json(['message' => 'Success']);
+    } catch (\Exception $e) {
+        // Log the exception or handle it appropriately
+        return response()->json(['error' => 'Something went wrong'], 500);
+    }
 }); 
 
 Route::get('/paypal/create-payment', [PayPalPaymentController::class, 'createPayment'])->name('paypal.create');
