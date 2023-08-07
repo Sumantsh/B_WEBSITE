@@ -1,9 +1,12 @@
 <?php
 
 use App\Models\Product;
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PayPalPaymentController;
+use Illuminate\Contracts\Session\Session;
+use Illuminate\Http\Client\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +43,13 @@ Route::get('/service', function () {
 Route::get('/formcheckout', function () {
     return view('formcheckout');
 });
+
+Route::get('/ed', function (Request $request) {
+    
+    session()->put('site_a_data', $request->all() );
+    return response()->json(['message' => 'success'], 201);   
+});
+
 
 Route::get("/pay/{id}/{qty}/{mg}", [PaymentController::class, 'product']);
 
