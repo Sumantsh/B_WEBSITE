@@ -1,12 +1,13 @@
-@include('header')
-{{-- @extends('includes.header') --}}
+@extends('layout.main')
+@section('title', 'Home')
+
+@section('content')
 
 <div class="about_wrapper">
-    <h2>About Us</h2>
+    <h2>About us</h2>
 </div>
 
-@include('footer')
-
+@endsection
 
 
 

@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Product;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PayPalPaymentController;
@@ -27,7 +27,7 @@ use App\Http\Controllers\PayPalPaymentController;
 // });
 
 Route::get('/', function () {
-    return view('index');
+    return view('home');
 });
 
 Route::get('/about', function () {
@@ -46,8 +46,17 @@ Route::get('/formcheckout', function () {
     return view('formcheckout');
 });
 
-Route::get('/ed', function () {
+Route::get('/ed', function (Request $request) {
 
+    var_dump($request->all());
+
+    // try {
+    //     session()->put('formdata', $request->all());
+    //     return response()->json(['message' => 'Success']);
+    // } catch (\Exception $e) {
+    //     // Log the exception or handle it appropriately
+    //     return response()->json(['error' => 'Something went wrong'], 500);
+    // }
     
 
 });

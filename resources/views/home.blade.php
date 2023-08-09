@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Contact us')
+@section('title', 'Home')
 
 @section('content')
 
