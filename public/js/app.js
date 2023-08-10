@@ -27,4 +27,19 @@ $(document).ready(function() {
             window.location.href = "/paypal/create-payment";
         }).catch((err) => console.error(err));
     });
+
+
+    $(window).scroll(function() {
+        // Check if the page has been scrolled by at least 100px
+        if ($(this).scrollTop() >= 100) {
+          // Make the navbar sticky
+          $('#myheader').css('position', 'fixed');
+          $('#myheader').css('top', '0');
+        } else {
+          // Reset the navbar to its default position
+          $('#myheader').css('position', 'relative');
+          $('#myheader').css('top', '0');
+        }
+      });
+
 });

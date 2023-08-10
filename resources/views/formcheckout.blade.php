@@ -1,26 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Checkout Form</title>
-</head>
-
-<style>
-    body {
-        /* background-color: rgba(0 0 0 /.8); */
-    }
-</style>
-
-<body>
-    {{-- @php
-    print_r(session()->all());
-    @endphp --}}
+@extends('layout.main')
+@section('title', 'Checkout form')
+    
+@section('checkout_form')
+    
     <h2 class="bill_heading">Billing Details</h2>
 
     <div id="formwrapper">
@@ -35,7 +17,7 @@
 
             <div class="order">
                 <p><span class="qnty">1+</span> <span class="product_name">Lorem ipsum, </span> </p>
-                <h2 class="item_price">$ <span>99</span></h2>
+                <h2  class="item_price text-light">$ <span>99</span></h2>
             </div>
         </div>
 
@@ -94,18 +76,15 @@
                 {{-- {{ route ('paypal.create')}} --}}
 
                 <div class="paybutton">
-                    <button id="submit" type="submit">Place Order</button>
+                    <button id="submit" class="" type="submit">Place Order</button>
                 </div>
 
             </form>
         </div>
 
+        
+
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-</body>
 
-<script src="{{ asset ('js/new.js')}}"></script>
-
-</html>
+@endsection

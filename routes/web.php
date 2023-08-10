@@ -1,12 +1,10 @@
 <?php
 
 use App\Models\Product;
-use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PayPalPaymentController;
-use Illuminate\Contracts\Session\Session;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +17,53 @@ use Illuminate\Http\Request;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/', function () {
+// <<<<<<< dev_s
+//     return view('checkoutpage');
+// });
 
 Route::get('/', function () {
-    return view('welcome');
-})->name("home");
+    return view('home');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/service', function () {
+    return view('service');
+});
+
+Route::get('/formcheckout', function () {
+    return view('formcheckout');
+});
+
+Route::get('/ed', function (Request $request) {
+
+    var_dump($request->all());
+
+    // try {
+    //     session()->put('formdata', $request->all());
+    //     return response()->json(['message' => 'Success']);
+    // } catch (\Exception $e) {
+    //     // Log the exception or handle it appropriately
+    //     return response()->json(['error' => 'Something went wrong'], 500);
+    // }
+    
+
+});
+
+
+
+
 
 Route::get("/pay", [PaymentController::class, 'product']);
 
