@@ -4,7 +4,7 @@
 @section('content')
 
 <div class="about_wrapper">
-    <h2>Home</h2>
+    <h2>Contact</h2>
 </div>
 
 @endsection

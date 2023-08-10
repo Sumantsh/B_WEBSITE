@@ -17,7 +17,7 @@
 
             <div class="order">
                 <p><span class="qnty">1+</span> <span class="product_name">Lorem ipsum, </span> </p>
-                <h2 class="item_price">$ <span>99</span></h2>
+                <h2  class="item_price text-light">$ <span>99</span></h2>
             </div>
         </div>
 
@@ -76,7 +76,7 @@
                 {{-- {{ route ('paypal.create')}} --}}
 
                 <div class="paybutton">
-                    <button id="submit" type="submit">Place Order</button>
+                    <button id="submit" class="" type="submit">Place Order</button>
                 </div>
 
             </form>

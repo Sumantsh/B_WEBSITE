@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title >@yield('title')</title>
+    <title>@yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -35,13 +35,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-          <!-- Navbar & Hero Start -->
+<!-- Navbar & Hero Start -->
 
-          <header>
-          <div class="container-xxl position-relative  p-0" id="header">
-            <nav class="navbar navbar-expand-lg navbar-light  px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <h1 class="m-0"><i class="fa fa-search me-2"></i>XFine<span class="">_Solution</span></h1>
+<header id="myheader">
+    <div class="container-xxl  position-relative  p-2" id="header" style="box-shadow: 4px 4px 35px rgba(244, 122, 52,.0); background:; border-radius:8px" id="navbar">
+
+            <nav class="navbar  navbar-expand-lg navbar-light  px-4 px-lg-5 py-3 py-lg-0">
+                <a href="{{ URL ('/')}}" class="navbar-brand p-0">
+                    <h1 style="color: #666" class="m-0"><i class="fa fa-search me-2 " style="color: "></i>XFine<span class="">_Solution</span></h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
 
@@ -49,27 +50,30 @@
                     <span class="fa fa-bars"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto py-0">
-                        <a href="/" class="nav-item nav-link active">Home</a>
-                        <a href="about" class="nav-item nav-link">About</a>
-                        <a href="contact" class="nav-item nav-link">Contact</a>
-                        <a href="service" class="nav-item nav-link">Service</a>
-                       
+                <div  class="collapse   navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav w-100 justify-content-end  ">
+                        
+                        <div class="mynav" style="">
+
+                        <a href="/" style="color:#666; font-weight:500" class="nav-item  nav-link active">Home</a>
+                        <a href="about" style="color:#666; font-weight:500" class="nav-item nav-link ">About</a>
+                        <a href="contact" style="color:#666; font-weight:500" class="nav-item nav-link ">Contact</a>
+                        <a href="service" style="color:#666; font-weight:500" class="nav-item nav-link ">Service</a>
+                    
+                    </div>
                       
                       
                     </div>
-                    <butaton type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
-                    <a href="" class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3">Pro Version</a>
+                    <button type="button" style="color:#666;" class="btn  text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+                    
                 </div>
             </nav>
-
-           
         </div>
-    </header>
+</header>
         <!-- Navbar & Hero End -->
 
 @yield('content')
+@yield('products')
 @yield('checkout_form')
 
 
@@ -90,13 +94,12 @@
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
+            <div class="col-md-6 col-lg-3 d-flex flex-column ">
                 <h5 class="text-white mb-4">Popular Link</h5>
                 <a class="btn btn-link" href="">About Us</a>
                 <a class="btn btn-link" href="">Contact Us</a>
                 <a class="btn btn-link" href="">Privacy Policy</a>
                 <a class="btn btn-link" href="">Terms & Condition</a>
-                <a class="btn btn-link" href="">Career</a>
             </div>
             <div class="col-md-6 col-lg-3">
                 <h5 class="text-white mb-4">Project Gallery</h5>
@@ -123,8 +126,8 @@
             </div>
             <div class="col-md-6 col-lg-3">
                 <h5 class="text-white mb-4">Newsletter</h5>
-                <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu</p>
-                <div class="position-relative w-100 mt-3">
+                
+                <div class="position-relative w-100 " style="margin-top: 20%">
                     <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">
                     <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
                 </div>
@@ -150,21 +153,13 @@
 
 
 <!-- Back to Top -->
-<a href="#" style="display:none;" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
+
 </div>
 
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-{{-- <script src="lib/wow/wow.min.js"></script> --}}
-{{-- <script src="lib/easing/easing.min.js"></script> --}}
-{{-- <script src="lib/waypoints/waypoints.min.js"></script> --}}
-{{-- <script src="lib/owlcarousel/owl.carousel.min.js"></script> --}}
-{{-- <script src="lib/isotope/isotope.pkgd.min.js"></script> --}}
-{{-- <script src="lib/lightbox/js/lightbox.min.js"></script> --}}
-
-<!-- Template Javascript -->
-{{-- <script src="js/main.js"></script> --}}
+<script src="{{asset ('js/app.js')}}" ></script>
 </body>
 
 </html>
