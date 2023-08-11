@@ -1,0 +1,188 @@
+header {
+    padding: 20px 0px;
+    /* background-color: red; */
+}
+
+.banner {
+    width: 100%;
+}
+
+.banner .img_banner {
+    width: 100%;
+}
+
+.about_wrapper {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    background: linear-gradient(90deg,rgba(174, 169, 169, 0.2),rgb(53, 51, 51)), url("../img/contactbg.jpg") 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    position: sticky;
+    /* top: 0; */
+    z-index: -1;
+
+
+}
+
+#myheader {
+    width: 100%;
+    height: auto;
+    z-index: 10;
+    transition: .3s all ease-in-out;
+    background-color: white;
+    box-shadow: 4px 0px 10px rgba(0 0 0 /.7);
+}
+
+.mynav {
+    width:75%;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-around;
+    /* background-color: #f47a34; */
+    border-radius: 30px;
+}
+
+
+
+.about_wrapper h2 {
+    font-size: 2.5rem;
+    color: white;
+    background-color: rgba(255 255 255 /.2);
+    padding: 4rem 0rem;
+    width: 50%;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 4px 4px 35px rgba(0 0 0 /.4);
+   
+}
+
+.prd_wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 70%);
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0px;
+
+}
+
+.prd {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2%;
+    border-radius: 8px;
+    transition: .3s all ease-in-out;
+    background-color: white;
+}
+
+.prd:hover {
+    box-shadow: 4px 4px 10px rgba(0 0 0 /.2);
+    border-right: 2px solid skyblue;
+
+
+}
+
+.prd_img {
+    width: 100%;
+    transition: .3s all ease-in-out;
+    overflow: hidden;
+    background-color: white;    
+    height:300px;
+    padding: 10px;
+
+}
+
+
+
+.prd_img .prd_image {
+    width: 100%;
+    transition: .3s all ease-in-out;
+    cursor: pointer;
+}
+
+.prd_img:hover .prd_image {
+    transform: scale(1.1);
+}
+
+
+
+.prd_title {
+    margin: 5% 0px;
+}
+
+.prd_title h2 {
+    font-size: 1.5rem;
+    color: #666;
+
+
+}
+
+.prd_price {
+    color: black;
+
+}
+
+.cart_btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5883f6;
+    color: white;
+}
+
+.prd_img img {
+    width: 100%;
+}
+
+.btn-link {
+    color: white;
+    text-align: left;
+}
+
+@media (min-width:600px) {
+
+    .prd_wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0px 10px;
+        }
+        
+     
+
+    
+}
+
+@media (min-width:1024px) {
+
+    .prd_wrapper {
+        grid-template-columns: repeat(3, 320px);
+        padding: 0px 20px;
+        }
+
+        .mynav {
+           
+            flex-direction: row;           
+        }
+
+    
+}
+
+@media (min-width:1366px) {
+
+    .prd_wrapper {
+        grid-template-columns: repeat(4, 320px);
+    }
+
+        .mynav {
+           
+            flex-direction: row;           
+        }
+
+    
+}
+
