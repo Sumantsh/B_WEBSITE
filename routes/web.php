@@ -1,11 +1,9 @@
 <?php
 
 use App\Models\Product;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PayPalPaymentController;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
 /*
@@ -23,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name("home");
 
-Route::get("/pay", [PaymentController::class, 'product']);
+Route::get("/pay", [PaymentController::class, 'checkout']);
 
 Route::get("/add", function() {
     $jsonFile = file_get_contents(storage_path("json/replaced_products.json"));
@@ -44,6 +42,12 @@ Route::get("/add", function() {
 Route::get("/payment", function() {
     return view('product');
 }); 
+
+
+Route::get("/redirect", function(Request $request) {
+    return response()->json(['message' => 'Success']);
+});
+
 
 Route::post("/form-route", function(Request $request) {
     try {
