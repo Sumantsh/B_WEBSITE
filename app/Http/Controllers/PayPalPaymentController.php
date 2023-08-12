@@ -97,18 +97,21 @@ class PayPalPaymentController extends Controller
         $orderId = $request->input('token');
 
         $formdata = Session::get('formdata');
-        $orderDetails = Session::get('orderDetails');
+        $orderDetails = Session::get('cr_data');
 
-        NewOrder::create([
-            'orderID' => $orderId,
-            'name' => $formdata['name'],
-            'email' => $formdata['email'],
-            'phone' => $formdata['phoneNumber'],
-            'address' => $formdata['address'] . ", ". $formdata['state'] . ", " . $formdata['country'] . ", " . $formdata['zip'],
-            'qty' => $orderDetails['qty'],
-            'mg' => $orderDetails['mg'],
-            'prdID' => $orderDetails['prdID']
-        ]);
+        foreach ($orderDetails as $value) {
+            NewOrder::create([
+                'orderID' => $orderId,
+                'name' => $formdata['name'],
+                'email' => $formdata['email'],
+                'phone' => $formdata['phoneNumber'],
+                'address' => $formdata['address'] . ", ". $formdata['state'] . ", " . $formdata['country'] . ", " . $formdata['zip'],
+                'pulse' => $value['hg_e3'],
+                'qty' => $value['jaq_r'],
+                'mg' => $value['asgf'],
+                'prdID' => $value['x_fre']
+            ]);
+        }
         
         Session::flash('success', 'Payment successful! Thank you for your purchase.');
         return redirect()->route('home'); // Replace 'home' with the desired route after successful payment

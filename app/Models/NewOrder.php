@@ -15,6 +15,7 @@ class Neworder extends Model
         'email',
         'phone',
         'address',
+        'pulse',
         'prdID',
         'qty',
         'mg'

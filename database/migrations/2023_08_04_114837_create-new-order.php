@@ -21,9 +21,10 @@ return new class extends Migration
             $table->string("email");
             $table->string("phone");
             $table->string("address");
-            $table->decimal("prdID")->nullable();
-            $table->decimal("qty")->nullable();
-            $table->decimal("mg")->nullable();
+            $table->integer("prdID")->nullable();
+            $table->integer("qty")->nullable();
+            $table->integer("mg")->nullable();
+            $table->integer('pulse')->nullable();
         });
     }
 
