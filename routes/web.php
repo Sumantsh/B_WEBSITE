@@ -29,7 +29,7 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/about', function () {
     return view('about');

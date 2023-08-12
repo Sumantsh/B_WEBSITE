@@ -13,6 +13,7 @@ class PaymentController extends Controller
         $decodedData = json_decode(urldecode($encodedData), true);
 
         Session()->put("cr_data", $decodedData);
+        // print_r(Session()->get("cr_data"));
         return view("formcheckout"); 
     }
 }
