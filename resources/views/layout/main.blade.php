@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -55,10 +55,10 @@
                         
                         <div class="mynav" style="">
 
-                        <a href="/" style="color:#666; font-weight:500" class="nav-item  nav-link active">Home</a>
-                        <a href="about" style="color:#666; font-weight:500" class="nav-item nav-link ">About</a>
-                        <a href="contact" style="color:#666; font-weight:500" class="nav-item nav-link ">Contact</a>
-                        <a href="service" style="color:#666; font-weight:500" class="nav-item nav-link ">Service</a>
+                        <a href="/" style="font-weight:500" class="nav-item my-item  nav-link active">Home</a>
+                        <a href="about"  style="font-weight:500" class="nav-item my-item nav-link ">About</a>
+                        <a href="contact"  style="font-weight:500" class="nav-item my-item nav-link ">Contact</a>
+                        <a href="service"  style="font-weight:500" class="nav-item my-item nav-link ">Service</a>
                     
                     </div>
                       
@@ -75,6 +75,7 @@
 @yield('content')
 @yield('products')
 @yield('checkout_form')
+@yield('add_prd')
 
 
   <!-- Footer Start -->

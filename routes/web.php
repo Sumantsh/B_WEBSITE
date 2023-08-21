@@ -5,6 +5,8 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PayPalPaymentController;
+use App\Http\Controllers\WebsiteProductController;
+use App\Http\Controllers\HomepageConstroller;
 use Illuminate\Http\Request;
 
 /*
@@ -27,9 +29,7 @@ use Illuminate\Http\Request;
 //     return view('checkoutpage');
 // });
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/' , [HomepageConstroller::class, 'Homepage']);
 
 Route::get('/about', function () {
     return view('about');
@@ -67,6 +67,10 @@ Route::get('/ed', function (Request $request) {
 
 
 Route::get("/pay", [PaymentController::class, 'checkout']);
+Route::get("/add_prd", [WebsiteProductController::class, 'add_prd']);
+Route::post("add_product", [WebsiteProductController::class, 'insertdata']);
+
+
 
 Route::get("/add", function() {
     $jsonFile = file_get_contents(storage_path("json/replaced_products.json"));

@@ -13,7 +13,13 @@ class PaymentController extends Controller
         $decodedData = json_decode(urldecode($encodedData), true);
 
         Session()->put("cr_data", $decodedData);
-        return view("formcheckout"); 
+        $total = 0;
+        foreach($decodedData as $item) {
+            $total += $item['price'];
+        }
+        return view("formcheckout", [
+            'price' => $total
+        ]); 
     }
 }
 

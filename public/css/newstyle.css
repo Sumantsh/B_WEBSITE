@@ -45,6 +45,20 @@ header {
     border-radius: 30px;
 }
 
+ .my-item {
+    transition: .3s all ease-in-out;
+    border-radius: 20px;
+    display: block;
+    color: #666;
+    width: 25%;
+    text-align: center;
+}
+
+.my-item:hover {
+    background-color: rgba(88, 131, 246,.4);
+    box-shadow: 4px 4px 10px rgba(0 0 0 /.2);
+}
+
 
 
 .about_wrapper h2 {
@@ -155,6 +169,27 @@ header {
      
 
     
+}
+.formwrapper {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#add_form {
+    width: 800px;
+    box-shadow: 4px 4px 8px rgba(0 0 0 /.2);
+    padding: 1rem;
+    /* display: flex; */
+}
+
+.devide {
+    display: flex;
+    gap: 20px;
+}
+#submit {
+    margin: 4% 35%;
+    padding: 5px 20px;
 }
 
 @media (min-width:1024px) {
