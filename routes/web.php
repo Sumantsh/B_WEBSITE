@@ -7,7 +7,10 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PayPalPaymentController;
 use App\Http\Controllers\WebsiteProductController;
 use App\Http\Controllers\HomepageConstroller;
+use App\Http\Controllers\ProductDetailController;
+use App\Models\Add_prodocts;
 use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +49,21 @@ Route::get('/service', function () {
 Route::get('/formcheckout', function () {
     return view('formcheckout');
 });
+
+Route::get("product_details/{id}", [ProductDetailController::class, 'ProductDetail']);
+
+Route::get("Checkout/{id}", [ProductDetailController::class, 'BuyNow']);
+
+// Route::get('product_details/{id}', function($id)  {
+//     return view('product_details', [
+//         'products' => Add_prodocts::find($id)
+//     ]);
+// });
+
+
+
+
+
 
 Route::get('/ed', function (Request $request) {
 

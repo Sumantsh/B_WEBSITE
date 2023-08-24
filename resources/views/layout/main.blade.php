@@ -25,13 +25,13 @@
     {{-- <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet"> --}}
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <!-- <link href="./css/style.css" rel="stylesheet"> -->
 
-    <link rel="stylesheet" href="./css/newstyle.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="{{asset('css/newstyle.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -55,10 +55,10 @@
                         
                         <div class="mynav" style="">
 
-                        <a href="/" style="font-weight:500" class="nav-item my-item  nav-link active">Home</a>
-                        <a href="about"  style="font-weight:500" class="nav-item my-item nav-link ">About</a>
-                        <a href="contact"  style="font-weight:500" class="nav-item my-item nav-link ">Contact</a>
-                        <a href="service"  style="font-weight:500" class="nav-item my-item nav-link ">Service</a>
+                        <a href="{{URL ('/')}}" style="font-weight:500" class="nav-item my-item  nav-link active">Home</a>
+                        <a href="{{URL ('about')}}"  style="font-weight:500" class="nav-item my-item nav-link ">About</a>
+                        <a href="{{URL ('contact')}}"  style="font-weight:500" class="nav-item my-item nav-link ">Contact</a>
+                        <a href="{{URL ('service')}}"  style="font-weight:500" class="nav-item my-item nav-link ">Service</a>
                     
                     </div>
                       
@@ -76,6 +76,8 @@
 @yield('products')
 @yield('checkout_form')
 @yield('add_prd')
+@yield('product_details')
+@yield('Checkout')
 
 
   <!-- Footer Start -->
@@ -106,22 +108,22 @@
                 <h5 class="text-white mb-4">Project Gallery</h5>
                 <div class="row g-2">
                     <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-1.jpg" alt="Image">
+                        <img class="img-fluid" src="{{asset('img/portfolio-1.jpg')}}" alt="Image">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-2.jpg" alt="Image">
+                        <img class="img-fluid" src="{{asset ('img/portfolio-2.jpg')}}" alt="Image">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-3.jpg" alt="Image">
+                        <img class="img-fluid" src="{{asset ('img/portfolio-3.jpg')}}" alt="Image">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-4.jpg" alt="Image">
+                        <img class="img-fluid" src="{{asset ('img/portfolio-4.jpg')}}" alt="Image">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-5.jpg" alt="Image">
+                        <img class="img-fluid" src="{{asset ('img/portfolio-5.jpg')}}" alt="Image">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-6.jpg" alt="Image">
+                        <img class="img-fluid" src="{{asset ('img/portfolio-6.jpg')}}" alt="Image">
                     </div>
                 </div>
             </div>

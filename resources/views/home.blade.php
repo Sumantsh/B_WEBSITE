@@ -11,6 +11,9 @@
 
 @section('products')
 
+    <div class="store">
+        <h2>Our Store</h2>
+    </div>
 
  <div class="prd_wrapper">
 
@@ -18,19 +21,22 @@
 
         <div class="prd">
             <div class="prd_img">
-                <img class="prd_image" src="{{ asset ('img/asus/Ant-510Air.jpg')}}" alt="">
+                <img class="prd_image" src="{{ asset ($product->prd_img) }}" alt="">
             </div>
             
             <div class="prd_title">
-                <h2>{{$product->prd_title}}</h2>
+                <h2>{{ $product->prd_title}}</h2>
             </div>
 
             <div class="prd_price">
-                <p >{{$product->prd_price}}</p>
+                <p >$&nbsp;{{$product->prd_price}}</p>
             </div>
 
             <div class="buybtn">
-                <button class="cart_btn">Buy Now</button>
+                {{-- @php
+                    print $product->prd_id;
+                @endphp --}}
+                <a href="product_details/{{$product['prd_id']}}" class="cart_btn">Buy Now</a>
             </div>
         </div>
 
