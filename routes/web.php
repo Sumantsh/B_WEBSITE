@@ -32,7 +32,9 @@ use Illuminate\Http\Request;
 //     return view('checkoutpage');
 // });
 
+
 Route::get('/' , [HomepageConstroller::class, 'Homepage']);
+
 
 Route::get('/about', function () {
     return view('about');
