@@ -69,12 +69,12 @@
 
 
                 </div>
-
+{{-- 
                 <div class="paypal_wrapper">
                     <div class="paypal">
                         <input type="radio" name="paypal" id="paypal"><img class="paypalimg" src="{{ asset ('img/pngwing2.png')}}" alt="">
                     </div>
-                </div>
+                </div> --}}
 
                 {{-- {{ route ('paypal.create')}} --}}
 

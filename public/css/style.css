@@ -214,6 +214,10 @@ input:focus {
     font-size: 1.8rem;
 }
 
+.cart_icon h2 {
+    color: #ffffff;
+}
+
 
 .item_price {
 }
