@@ -32,13 +32,19 @@ class PayPalPaymentController extends Controller
     {
         $request = new OrdersCreateRequest();
         $request->prefer('return=representation');
+        $data = Session()->get('cr_data');
+        $total = 0;
+        foreach($data as $item) {
+            $total += $item['price'];
+        };
+
         $request->body = [
             'intent' => 'CAPTURE',
             'purchase_units' => [
                 [
                     'amount' => [
                         'currency_code' => 'USD',
-                        'value' => '10.00', // Replace with the actual amount
+                        'value' => $total, // Replace with the actual amount
                     ],
                 ],
             ],

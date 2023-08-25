@@ -1,9 +1,12 @@
 @extends('layout.main')
-@section('title', 'Checkout form')
+@section('title', 'Checkout_'.$product->prd_title)
+
+@section('Checkout')
     
-@section('checkout_form')
+
+
     
-    <h2 class="bill_heading">Billing Details</h2>
+    <h2 class="bill_heading">Checkout</h2>
 
     <div id="formwrapper">
 
@@ -16,8 +19,8 @@
             </div>
 
             <div class="order">
-                <p><span class="qnty">1+</span> <span class="product_name">Lorem ipsum, </span> </p>
-                <h2  class="item_price text-light">$ <span>{{ $price }}</span></h2>
+                <p><span class="qnty"></span> <span class="product_name">{{$product->prd_title}}</span> </p>
+                <h2  class="item_price text-light">$ <span>{{$product->prd_price}}</span></h2>
             </div>
         </div>
 
@@ -66,12 +69,12 @@
 
 
                 </div>
-
+{{-- 
                 <div class="paypal_wrapper">
                     <div class="paypal">
                         <input type="radio" name="paypal" id="paypal"><img class="paypalimg" src="{{ asset ('img/pngwing2.png')}}" alt="">
                     </div>
-                </div>
+                </div> --}}
 
                 {{-- {{ route ('paypal.create')}} --}}
 
@@ -85,6 +88,5 @@
         
 
     </div>
-
 
 @endsection
