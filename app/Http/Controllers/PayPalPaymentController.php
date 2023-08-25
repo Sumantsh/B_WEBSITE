@@ -35,7 +35,7 @@ class PayPalPaymentController extends Controller
         $data = Session()->get('cr_data');
         $total = 0;
         foreach($data as $item) {
-            $total += $item['price'];
+            $total += ($item['price'] * $item['jaq_r']);
         };
 
         $request->body = [
