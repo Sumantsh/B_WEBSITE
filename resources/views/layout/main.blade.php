@@ -37,14 +37,19 @@
 <body>
 <!-- Navbar & Hero Start -->
 
-<header id="myheader">
+<header id="myheader" style="display: none">
     <div class="container-xxl  position-relative  p-2" id="header" style="box-shadow: 4px 4px 35px rgba(244, 122, 52,.0); background:; border-radius:8px" id="navbar">
 
-            <nav class="navbar  navbar-expand-lg navbar-light  px-4 px-lg-5 py-3 py-lg-0">
+            <nav id="oldnav" style="display: none" class="navbar  navbar-expand-lg navbar-light  px-4 px-lg-5 py-3 py-lg-0">
+
                 <a href="{{ URL ('/')}}" class="navbar-brand p-0">
                     <h1 style="color: #666" class="m-0"><i class="fa fa-search me-2 " style="color: "></i>XFine<span class="">_Solution</span></h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
+
+           
+
+                <div class="nav_items">
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -53,7 +58,7 @@
                 <div  class="collapse   navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav w-100 justify-content-end  ">
                         
-                        <div class="mynav" style="">
+                    <div class="mynav" style="">
 
                         <a href="{{URL ('/')}}" style="font-weight:500" class="nav-item my-item  nav-link active">Home</a>
                         <a href="{{URL ('about')}}"  style="font-weight:500" class="nav-item my-item nav-link ">About</a>
@@ -67,9 +72,54 @@
                     <button type="button" style="color:#666;" class="btn  text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
                     
                 </div>
+
+            </div>
             </nav>
         </div>
 </header>
+
+<header id="new_header">
+    <div class="top_nav">
+        <div class="cmp_logo">
+            <a href="{{ URL ('/')}}" class="navbar-brand p-0">
+                <h1 style="color: #666" class="m-0"><i class="fa fa-search me-2 " style="color: "></i>XFine<span class="">_Solution</span></h1>
+                <!-- <img src="img/logo.png" alt="Logo"> -->
+            </a>
+        </div>
+        <div class="search_bar">
+            <div class="input_wrapper">
+                <input class="search" type="serach">
+                <span><i class="fa fa-search me-2 " style="color: "></i></span>
+            </div>
+        </div>
+        <div class="social">
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-regular fa-user"></i>
+            <i class="fa-solid fa-store"></i>
+        </div>
+
+        <div class="hamburger_wrapper">
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            
+        </div>
+
+    </div>
+    <div class="down_nav">
+        <div class="mynav" style="">
+
+            <a href="{{URL ('/')}}" style="font-weight:500" class="nav-item my-item  nav-link active">Home</a>
+            <a href="{{URL ('about')}}"  style="font-weight:500" class="nav-item my-item nav-link ">About</a>
+            <a href="{{URL ('contact')}}"  style="font-weight:500" class="nav-item my-item nav-link ">Contact</a>
+            <a href="{{URL ('service')}}"  style="font-weight:500" class="nav-item my-item nav-link ">Service</a>
+        
+        </div>
+    </div>
+</header>
+
+
         <!-- Navbar & Hero End -->
 
 @yield('content')
@@ -163,6 +213,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{asset ('js/app.js')}}" ></script>
+<script src="{{asset ('js/new.js')}}" ></script>
 </body>
 
 </html>
