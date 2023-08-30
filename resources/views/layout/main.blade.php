@@ -83,8 +83,8 @@
     <div class="top_nav">
         <div class="cmp_logo">
             <a href="{{ URL ('/')}}" class="navbar-brand p-0">
-                <h1 style="color: #666" class="m-0"><i class="fa fa-search me-2 " style="color: "></i>XFine<span class="">_Solution</span></h1>
-                <!-- <img src="img/logo.png" alt="Logo"> -->
+                {{-- <h1 style="color: #666" class="m-0"><i class="fa fa-search me-2 " style="color: "></i>XFine<span class="">_Solution</span></h1> --}}
+                <img  src="{{asset ('img/logo.png')}}" alt="">
             </a>
         </div>
         <div class="search_bar">
@@ -111,11 +111,57 @@
     <div class="down_nav">
         <div class="mynav" style="">
 
+           <div class="nav_items">
             <a href="{{URL ('/')}}" style="font-weight:500" class="nav-item my-item  nav-link active">Home</a>
-            <a href="{{URL ('about')}}"  style="font-weight:500" class="nav-item my-item nav-link ">About</a>
-            <a href="{{URL ('contact')}}"  style="font-weight:500" class="nav-item my-item nav-link ">Contact</a>
-            <a href="{{URL ('service')}}"  style="font-weight:500" class="nav-item my-item nav-link ">Service</a>
-        
+           </div>             
+           
+           <div class="nav_items" id="nav_items" >
+            <a href="{{URL ('products')}}"  style="font-weight:500" class="nav-item my-item nav-link ">COMPUTER COMPONENTS <span id="drop_arrow"><i class="fa-solid fa-chevron-down"></i></span></a> 
+
+            <div class="component_drop">
+                <div class="up">
+                    <a class="drop_link" href="{{url ('products')}}">Motherboard</a>
+                    <a class="drop_link" href="{{url ('products')}}">Processor</a>
+                    <a class="drop_link" href="{{url ('products')}}">Ram</a>
+                    <a class="drop_link" href="{{url ('products')}}">Graphics</a>
+                    <a class="drop_link" href="{{url ('products')}}">Ssd</a>
+                </div>
+                <div class="down2">
+                    <a class="drop_link" href="{{url ('products')}}">Pen Drives</a>
+                    <a class="drop_link" href="{{url ('products')}}">Usb Mouse</a>
+                    <a class="drop_link" href="{{url ('products')}}">Wireless Mouse</a>
+                    <a class="drop_link" href="{{url ('products')}}">Cabinets</a>
+                    <a class="drop_link" href="{{url ('products')}}">Laptops</a>
+                </div>
+            </div>
+
+
+            </div>
+
+            <div class="nav_items">
+                <a href="{{URL ('products')}}"  style="font-weight:500" class="nav-item my-item nav-link ">
+                    PRE-BUILD SYSTEMS <span><i class="fa-solid fa-chevron-down"></i></span></a>
+
+                    <div class="prebuild_drop">
+                        <a href=""></a>
+                    </div>
+            </div>
+
+            <div class="nav_items">
+                <a href="{{URL ('service')}}"  style="font-weight:500" class="nav-item my-item nav-link ">Service</a>
+            </div>
+
+
+            <div class="nav_items">
+                <a href="{{URL ('about')}}"  style="font-weight:500" class="nav-item my-item nav-link ">About</a>
+            </div>
+                        
+            <div class="nav_items">
+                <a href="{{URL ('contact')}}"  style="font-weight:500" class="nav-item my-item nav-link ">Contact</a>
+            </div>
+
+
+            
         </div>
     </div>
 </header>
@@ -124,15 +170,15 @@
         <!-- Navbar & Hero End -->
 
 @yield('content')
-@yield('products')
 @yield('checkout_form')
 @yield('add_prd')
 @yield('product_details')
 @yield('Checkout')
+@yield('products')
 
 
   <!-- Footer Start -->
-  <div class="container-fluid bg-primary text-light footerpt-5 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container-fluid   text-light footerpt-5 wow fadeIn" data-wow-delay="0.1s" id="footer_main">
     <div class="container py-5 px-lg-5">
         <div class="row g-5">
             <div class="col-md-6 col-lg-3">

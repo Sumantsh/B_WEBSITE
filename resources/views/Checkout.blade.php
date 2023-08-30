@@ -20,7 +20,7 @@
 
             <div class="order">
                 <p><span class="qnty"></span> <span class="product_name">{{$product->prd_title}}</span> </p>
-                <h2  class="item_price text-light">$ <span>{{$product->prd_price}}</span></h2>
+                <h2  class="item_price">$ <span>{{$product->prd_price}}</span></h2>
             </div>
         </div>
 

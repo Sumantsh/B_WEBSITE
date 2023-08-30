@@ -52,6 +52,13 @@ Route::get('/formcheckout', function () {
     return view('formcheckout');
 });
 
+Route::get('/products', function () {
+    $products = Add_prodocts::all();
+    return view('products', [
+        'products'=> $products
+    ]);
+});
+
 Route::get("product_details/{id}", [ProductDetailController::class, 'ProductDetail']);
 
 Route::get("Checkout/{id}", [ProductDetailController::class, 'BuyNow']);

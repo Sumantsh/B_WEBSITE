@@ -7,12 +7,14 @@
 header {
     /* padding: 10px 0px 0px 0px; */
     /* background-color: red; */
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     /* background-color: whitesmoke; */
-    background: linear-gradient(to top, rgba(238, 171, 54,.9), rgba(255, 141, 79,.7), #ff6f7c);
+    /* background: linear-gradient(to top, rgba(238, 171, 54,.9), rgba(255, 141, 79,.7), #ff6f7c); */
+    background: white;
+    box-shadow: 4px 4px 10px rgba(0 0 0 /.4);
     z-index: 2;
 }
 
@@ -132,26 +134,27 @@ header {
 }
 
 .mynav {
-    width:50%;
+    width:70%;
     height: 100vh;
     display:flex;
     flex-direction: column;
     /* justify-content:space-between; */
     /* align-items: center; */
-    background-color: rgba(244, 122, 52,.07);
+    /* background-color: rgba(244, 122, 52,.07); */
     backdrop-filter: blur(10px);
     /* border-radius: 30px; */
     /* padding: 10px 0px; */
     transition: .3s all linear;
+    box-shadow: 4px 8px 10px rgba(0 0 0  /.2);
 }
 
  .my-item {
     transition: .3s all ease-in-out;
     border-radius: 20px;
     display: block;
-    color: white;
+    color: #666;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1rem;
     text-align: center;
     margin: 25px 0px;
 }
@@ -162,12 +165,74 @@ header {
     color: #666;
 }
 
-
-
-
 .nav_items {
     width: 100%;
+    overflow-y: visible;
+   
+}
+
+
+
+.component_drop {
+    width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s all linear;
+    padding: 20px 0px;
+    box-shadow: 4px 4px 10px rgba(0 0 0  /.2);
+    background-color: #ffffff;
+    overflow-y: scroll;
+    /* background-color: green; */
+   
+}
+
+#nav_items:hover .component_drop {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+ 
+}
+ 
+
+
+
+
+.component_drop .drop_link {
+    display: block;
+    font-size: 1rem;
+    color: #36393B;
+    text-align: left;
+    padding: 20px 20px;
+    background-color: transparent;
+    margin: 0;
+    box-shadow: none;
+    position: relative;
+}
+
+.component_drop .drop_link::before {
+
+    content: '';
+    position: absolute;
+    width: 10%;
+    height: 2px;
+    bottom: 15px;
+    left: 20px;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 20px;
+    background-color: #36393B;
+    transition: .3s all ease-in-out;
+}
+
+.component_drop .drop_link:hover::before{
+    width: 60%;
+    opacity: 1;
+    visibility: visible;
+
 }
 
 .banner {
@@ -515,9 +580,9 @@ table {
 }
 
 
-
-
-
+#footer_main {
+    background-color: rgba(11, 12, 58);
+}
 
 .formwrapper {
     padding: 30px;
@@ -540,6 +605,77 @@ table {
     margin: 4% 35%;
     padding: 5px 20px;
 }
+
+/* products page styles from lensuae */
+
+.products-grid {
+    display: flex;
+    justify-content: center;
+}
+
+.products-grid .products-grid-container {
+    width: 80%;
+    display: grid;
+    row-gap: 2rem;
+    padding-bottom: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+    row-gap: 1.5rem;
+}
+
+.products-grid .products-grid-container .product-show {
+    text-align: center;
+    cursor: pointer;
+    transition: 0.04s;
+    box-shadow: 4px 4px 30px rgba(0 0 0  /.2);
+    margin: 4% 0px;
+    min-height: 400px;
+}
+
+
+.products-grid .products-grid-container .product-show .product-show-image img {
+    width: 40%;
+}
+
+.products-grid .products-grid-container .product-show:hover {
+    transform: scale(1.02);
+}
+
+
+.products-grid .products-grid-container .product-show h3 {
+    color: #777;
+    padding: 0 1rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.products-grid .products-grid-container .product-show .product-show-price {
+    font-weight: 700;
+    color: #3188CC;
+}
+
+.products-grid .products-grid-container .product-show p {
+    color: #3188CC;
+    font-size: 0.825rem;
+    text-align: center;
+}
+
+.products-grid .products-grid-container .product-show .add-to-favorites {
+    color: #777;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.secure_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 10px rgba(0 0 0  /.2);
+    background-color: white;
+}
+
+
+
 
 
 @media (min-width:600px) {
@@ -576,8 +712,10 @@ table {
 
 
     .mynav {
+        width: 100%;
         height: 100%;
         justify-content: center;
+        backdrop-filter: blur(0px);
     }
 
     .my-item {
@@ -615,6 +753,102 @@ table {
 }
 
 @media (min-width:1024px) {
+
+    
+.nav_items {
+    width: 100%;
+    position: relative;
+   
+}
+    
+#nav_items {
+    position: relative;
+   
+}
+
+
+
+
+.component_drop {
+    position: absolute;
+    top: 100%;
+    left: -110px;
+    background-color: rgba(255, 255, 255,.9);
+    -webkit-backdrop-filter: blur(20px);
+     backdrop-filter: blur(20px);
+    width: 600px;
+    height: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s all linear;
+    padding: 0px 0px;
+    border-bottom: 2px solid #5883f6;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0 0 0  /.2);
+
+   
+}
+
+.component_drop .up {
+
+    width: 50%;
+}
+
+.component_drop .down2 {
+
+    width: 50%;
+}
+
+
+.nav_items:hover .component_drop {
+    height: 350px;
+    opacity: 1;
+    visibility: visible;
+ 
+}
+ 
+
+.component_drop .drop_link {
+    display: block;
+    font-size: 1rem;
+    color: #36393B;
+    text-align: left;
+    padding: 20px 20px;
+    background-color: transparent;
+    margin: 0;
+    box-shadow: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.component_drop .drop_link::before {
+
+    content: '';
+    position: absolute;
+    width: 10%;
+    height: 2px;
+    bottom: 15px;
+    left: 20px;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 20px;
+    background-color: #36393B;
+    transition: .3s all ease-in-out;
+}
+
+.component_drop .drop_link:hover::before{
+    width: 40%;
+    opacity: 1;
+    visibility: visible;
+
+}
+
+
+
 
     .prd_wrapper {
         grid-template-columns: repeat(3, 320px);
@@ -711,7 +945,7 @@ table {
 
     .down_nav {
         height: 100px;
-        justify-content: flex-start;
+        
     }
 
     
