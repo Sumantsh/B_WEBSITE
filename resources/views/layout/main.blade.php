@@ -67,8 +67,7 @@
                         <a href="{{URL ('service')}}"  style="font-weight:500" class="nav-item my-item nav-link ">Service</a>
                     
                     </div>
-                      
-                      
+
                     </div>
                     <button type="button" style="color:#666;" class="btn  text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
                     
@@ -177,7 +176,7 @@
 @yield('products')
 
 
-  <!-- Footer Start -->
+<!-- Footer Start -->
 
 
 
