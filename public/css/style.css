@@ -4,7 +4,7 @@
 * {
     margin: 0;
     padding: 0;
-    text-decoration: none;
+    /* text-decoration: none; */
     box-sizing: border-box;
     list-style: none;
     font-family: 'Poppins', sans-serif;
@@ -302,8 +302,39 @@ input:focus {
 
 
 
+/* footer styles */
+.container-fluid h5 {
+    position: relative;
+    padding-bottom: 0.5rem;
+}
 
+.container-fluid h5::after {
+    content: '';
+    background-color: #f04d6a;
+    position: absolute;
+    bottom: 0;
+    height: 4px;
+    width: 40%;
+    left: 0;
+    right: 0;
+}
 
+.container-fluid.d-lg-flex {
+    background-color: #363f4d;
+}
+
+.container-fluid .font-size-1-4 {
+    font-size: 90%;
+}
+
+.container-fluid a {
+    color: black;
+}
+
+.container-fluid a:hover {
+    color: #f04d6a;
+    text-decoration: underline;
+}
 
 
 @media (min-width:768px) {
