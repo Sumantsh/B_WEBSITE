@@ -2,14 +2,15 @@
 
 use App\Models\Product;
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\PayPalPaymentController;
-use App\Http\Controllers\WebsiteProductController;
-use App\Http\Controllers\HomepageConstroller;
-use App\Http\Controllers\ProductDetailController;
+use App\Http\Livewire\Cart;
 use App\Models\Add_prodocts;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\HomepageConstroller;
+use App\Http\Controllers\PayPalPaymentController;
+use App\Http\Controllers\ProductDetailController;
+use App\Http\Controllers\WebsiteProductController;
 
 
 /*
@@ -139,3 +140,5 @@ Route::get('/paypal/create-payment', [PayPalPaymentController::class, 'createPay
 Route::get('/paypal/success', [PayPalPaymentController::class, 'success'])->name('paypal.success');
 Route::get('/paypal/cancel',  [PayPalPaymentController::class, 'cancel'])->name('paypal.cancel');
 Route::get('/paypal/error', [PayPalPaymentController::class, 'error'])->name('paypal.error');
+
+Route::post("/add-to-cart", [Cart::class, 'addToCart']);
