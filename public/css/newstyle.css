@@ -48,6 +48,8 @@ header {
 
 }
 
+
+
 .fa-bars,.fa-xmark {
     position: absolute;
     /* inset: 0; */
@@ -639,9 +641,6 @@ header {
     margin: 10% 0px 10% 0px;
 }
 
-table {
-    width: 80% !important;
-}
 
 .product-details .grid-container {
     display: grid;

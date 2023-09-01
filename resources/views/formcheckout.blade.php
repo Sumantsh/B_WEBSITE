@@ -58,7 +58,7 @@
             <div class="new_order">
                 <div class="price_wrapper">
                     <h2>Your Order</h2>
-                    <p>$ <span>228</span></p>
+                    <p><span>228</span> $</p>
                 </div>
                 {{-- <p><span class="qnty">1+</span> <span class="product_name">{{ $prd_title }}</span> </p> --}}
                 {{-- <h2 class="item_price text-light"><span>$ {{ $price }}</span></h2> --}}
@@ -69,23 +69,53 @@
                 <li><span class="star_mark">*</span>  total amount on your credit card statement may differ as the charge may be processed overseas at currency exchange rate of the issuing bank</li>
             </div>
 
-        </div>
+          
 
-        <div class="shiping_wrapper">
-            <div class="shiping_title">
-                <h2>Shipping</h2>
+            <table class="shiping_table">
+                <tr>
+                    <td class="subtotal">Subtotal</td>
+                    <td class="total">228  $</td>
+                </tr>
+
+                <tr>
+                    <td class="subtotal">Shipping</td>
+                    
+                    <td class="radio_td">
+                        
+                    <div class="shiping_grp">
+                        <input type="radio" name="normal_shiping" id="normal_shiping"><span>5-10 Day Shipment</span> <span style="color: skyblue;margin:0px 5px">12</span> 
+                        <span style="color: skyblue;margin:0px 5px">$</span>
+                    </div>
+                        
+                    <div class="shiping_grp">
+                        <input type="radio" name="normal_shiping" id="normal_shiping"><span>3-4 Day Shipment</span> <span style="color: skyblue;margin:0px 5px">25</span> <span style="color: skyblue;margin:0px 5px">$</span>
+                    </div>
+                        
+                    <div class="shiping_grp">
+                        <input type="radio" name="normal_shiping" id="normal_shiping"><span>1 Day Shipment</span> <span style="color: skyblue; text-decoration:line-through;:0px 5px;text-decoration-color: var(--theme_color);">Not Available</span> 
+                    </div>
+                </td>
+                </tr>
+
+                <tr>
+                    <td class="subtotal">Total</td>
+                    <td class="total">1000 $</td>
+                </tr>
+
+            </table>
+
+            <div class="card">
+                <img src="{{asset ('img/visa_master.png')}}" alt="">
             </div>
 
-            <div class="shiping_points">
-                <input type="checkbox" name="normal_shiping" id="normal_shiping"><span>5-8 Days Shiping</span>
-                <input type="checkbox" name="normal_shiping" id="normal_shiping"><span>3-4 Days Shiping</span>
-                <input type="checkbox" name="normal_shiping" id="normal_shiping"><span>1 Day Shiping</span>
-            </div>
         </div>
 
+        
         <div class="paybutton">
-            <button id="paynow" class="" type="submit">Submit Transaction USD<span style="color: #d70c55;padding:0px 10px">188.52</span></button>
+            <button id="paynow" class="" type="submit">Pay Now USD<span style="color: skyblue;padding:0px 10px">188.52</span></button>
         </div>
+
+
 
     </div>
 
@@ -140,13 +170,14 @@
 
                 </div>
 
-                <div class="paypal_wrapper">
+                {{-- <div class="paypal_wrapper">
                     <div class="paypal">
                         <input type="radio" name="paypal" id="paypal"><img class="paypalimg" src="{{ asset ('img/pngwing2.png')}}" alt="">
                     </div>
-                </div>
+                </div> --}}
 
                 {{-- {{ route ('paypal.create')}} --}}
+
 
               
 
