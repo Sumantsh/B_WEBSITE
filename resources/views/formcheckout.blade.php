@@ -47,6 +47,9 @@
       
         
         <div class="rightwrapper">
+
+            <div class="cart_wapper">
+
             <div class="cart_icon">
                 <i class="fa-solid fa-cart-arrow-down"></i>
                 <h2>Cart Summary</h2>
@@ -60,7 +63,31 @@
                 {{-- <p><span class="qnty">1+</span> <span class="product_name">{{ $prd_title }}</span> </p> --}}
                 {{-- <h2 class="item_price text-light"><span>$ {{ $price }}</span></h2> --}}
             </div>
+
+            
+            <div class="differ">
+                <li><span class="star_mark">*</span>  total amount on your credit card statement may differ as the charge may be processed overseas at currency exchange rate of the issuing bank</li>
+            </div>
+
         </div>
+
+        <div class="shiping_wrapper">
+            <div class="shiping_title">
+                <h2>Shipping</h2>
+            </div>
+
+            <div class="shiping_points">
+                <input type="checkbox" name="normal_shiping" id="normal_shiping"><span>5-8 Days Shiping</span>
+                <input type="checkbox" name="normal_shiping" id="normal_shiping"><span>3-4 Days Shiping</span>
+                <input type="checkbox" name="normal_shiping" id="normal_shiping"><span>1 Day Shiping</span>
+            </div>
+        </div>
+
+        <div class="paybutton">
+            <button id="paynow" class="" type="submit">Submit Transaction USD<span style="color: #d70c55;padding:0px 10px">188.52</span></button>
+        </div>
+
+    </div>
 
 
         <div class="leftformwrapper">
@@ -121,9 +148,7 @@
 
                 {{-- {{ route ('paypal.create')}} --}}
 
-                <div class="paybutton">
-                    <button id="submit" class="" type="submit">Place Order</button>
-                </div>
+              
 
             </form>
         </div>
