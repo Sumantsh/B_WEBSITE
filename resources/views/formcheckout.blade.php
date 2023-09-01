@@ -1,30 +1,98 @@
-@extends('layout.main')
-@section('title', 'Checkout form')
+<head>
+    <meta charset="utf-8">
+    <title>@yield('title')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    {{-- <link href="lib/animate/animate.min.css" rel="stylesheet"> --}}
+    {{-- <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"> --}}
+    {{-- <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet"> --}}
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <!-- <link href="./css/style.css" rel="stylesheet"> -->
+
+    <link rel="stylesheet" href="{{asset('css/newstyle.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<div class="secure_wrapper">
+    <div class="secure">
+        <img src="{{ asset ('img/secure.png')}}" alt="">
+    </div>
+</div>
     
-@section('checkout_form')
-    
-    <h2 class="bill_heading">Billing Details</h2>
+   
 
     <div id="formwrapper">
 
-
+      
         
         <div class="rightwrapper">
+
+            <div class="cart_wapper">
+
             <div class="cart_icon">
                 <i class="fa-solid fa-cart-arrow-down"></i>
                 <h2>Cart Summary</h2>
             </div>
 
-            <div class="order">
-                <p><span class="qnty">1+</span> <span class="product_name">{{ $prd_title }}</span> </p>
-                <h2 class="item_price text-light"><span>$ {{ $price }}</span></h2>
+            <div class="new_order">
+                <div class="price_wrapper">
+                    <h2>Your Order</h2>
+                    <p>$ <span>228</span></p>
+                </div>
+                {{-- <p><span class="qnty">1+</span> <span class="product_name">{{ $prd_title }}</span> </p> --}}
+                {{-- <h2 class="item_price text-light"><span>$ {{ $price }}</span></h2> --}}
+            </div>
+
+            
+            <div class="differ">
+                <li><span class="star_mark">*</span>  total amount on your credit card statement may differ as the charge may be processed overseas at currency exchange rate of the issuing bank</li>
+            </div>
+
+        </div>
+
+        <div class="shiping_wrapper">
+            <div class="shiping_title">
+                <h2>Shipping</h2>
+            </div>
+
+            <div class="shiping_points">
+                <input type="checkbox" name="normal_shiping" id="normal_shiping"><span>5-8 Days Shiping</span>
+                <input type="checkbox" name="normal_shiping" id="normal_shiping"><span>3-4 Days Shiping</span>
+                <input type="checkbox" name="normal_shiping" id="normal_shiping"><span>1 Day Shiping</span>
             </div>
         </div>
+
+        <div class="paybutton">
+            <button id="paynow" class="" type="submit">Submit Transaction USD<span style="color: #d70c55;padding:0px 10px">188.52</span></button>
+        </div>
+
+    </div>
 
 
         <div class="leftformwrapper">
 
-
+            <h2 class="bill_heading">Billing Details</h2>
 
             <form id="form1">
                 <div class="input">
@@ -40,6 +108,11 @@
                 <div class="input">
                     <label for="">Email</label>
                     <input type="email" placeholder="Email" name="email" required>
+                </div>
+
+                <div class="input">
+                    <label for="date">Date of Birth</label>
+                    <input type="date" placeholder="date" name="date" required>
                 </div>
 
                 <div class="input">
@@ -75,9 +148,7 @@
 
                 {{-- {{ route ('paypal.create')}} --}}
 
-                <div class="paybutton">
-                    <button id="submit" class="" type="submit">Place Order</button>
-                </div>
+              
 
             </form>
         </div>
@@ -87,4 +158,8 @@
     </div>
 
 
-@endsection
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset ('js/app.js')}}" ></script>
+<script src="{{asset ('js/new.js')}}" ></script>
