@@ -83,15 +83,16 @@
                     <td class="radio_td">
                         
                     <div class="shiping_grp">
-                        <input type="radio" name="normal_shiping" id="normal_shiping"><span>5-10 Day Shipment</span> <span style="color: skyblue;margin:0px 5px">0  $</span> 
+                        <input type="radio" name="normal_shiping" id="normal_shiping"><span>5-10 Day Shipment</span> <span style="color: skyblue;margin:0px 5px">12</span> 
+                        <span style="color: skyblue;margin:0px 5px">$</span>
                     </div>
                         
                     <div class="shiping_grp">
-                        <input type="radio" name="normal_shiping" id="normal_shiping"><span>3-4 Day Shipment</span> <span style="color: skyblue;margin:0px 5px">30  $</span> 
+                        <input type="radio" name="normal_shiping" id="normal_shiping"><span>3-4 Day Shipment</span> <span style="color: skyblue;margin:0px 5px">25</span> <span style="color: skyblue;margin:0px 5px">$</span>
                     </div>
                         
                     <div class="shiping_grp">
-                        <input type="radio" name="normal_shiping" id="normal_shiping"><span>1 Day Shipment</span> <span style="color: skyblue;margin:0px 5px">50 $</span> 
+                        <input type="radio" name="normal_shiping" id="normal_shiping"><span>1 Day Shipment</span> <span style="color: skyblue; text-decoration:line-through;:0px 5px;text-decoration-color: var(--theme_color);">Not Available</span> 
                     </div>
                 </td>
                 </tr>
@@ -111,7 +112,7 @@
 
         
         <div class="paybutton">
-            <button id="paynow" class="" type="submit">Submit Transaction USD<span style="color: skyblue;padding:0px 10px">188.52</span></button>
+            <button id="paynow" class="" type="submit">Pay Now USD<span style="color: skyblue;padding:0px 10px">188.52</span></button>
         </div>
 
 
