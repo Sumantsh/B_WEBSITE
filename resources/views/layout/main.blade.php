@@ -132,63 +132,62 @@
 
 
   <!-- Footer Start -->
-  <div class="container-fluid bg-primary text-light footerpt-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container py-5 px-lg-5">
+
+  <div class="container-fluid d-lg-flex">
+    <div class="container py-4">
+        <p class='text-light my-0'>Class, Inspiration, Latest News and Awesomeness</p>
+        <p class='font-size-1-4 my-0'>New ideas and a whole bunch of madness delivered to your inbox as it happens!</p>
+    </div>
+
+    <div class="container d-lg-flex gap-2" style="align-items: center">
+        <input type="email" placeholder="Your Email..." >
+        <input type="text" placeholder="Name">
+        <input type="button" value="Subscribe" class='bg-dark text-light'>
+    </div>
+    
+  </div>
+
+  <div class="container-fluid text-dark bg-white footerpt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5 px-lg-1">
         <div class="row g-5">
             <div class="col-md-6 col-lg-3">
-                <h5 class="text-white mb-4">Get In Touch</h5>
-                <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                <div class="d-flex pt-2">
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                </div>
+                <h5 class="text-dark mb-4 text-uppercase font-weight-bold">Information</h5>
+                <a class="btn btn-link d-block" href="/about">About Us</a>
+                <a class="btn btn-link d-block" href="">Payment</a>
+                <a class="btn btn-link d-block" href="">Privacy Policy</a>
+                <a class="btn btn-link d-block" href="">Terms & Condition</a>
             </div>
-            <div class="col-md-6 col-lg-3 d-flex flex-column ">
-                <h5 class="text-white mb-4">Popular Link</h5>
-                <a class="btn btn-link" href="">About Us</a>
-                <a class="btn btn-link" href="">Contact Us</a>
-                <a class="btn btn-link" href="">Privacy Policy</a>
-                <a class="btn btn-link" href="">Terms & Condition</a>
+            <div class="col-md-6 col-lg-3 d-flex flex-column">
+                <h5 class="text-dark mb-4 text-uppercase font-weight-bold">Customer Services</h5>
+                <a class="btn btn-link d-block" href="/contact">Contact Us</a>
+                <a class="btn btn-link d-block" href="">Refunds and Returns</a>
+                <a class="btn btn-link d-block" href="/service">Services</a>
             </div>
             <div class="col-md-6 col-lg-3">
-                <h5 class="text-white mb-4">Project Gallery</h5>
+                <h5 class="text-dark mb-4 text-uppercase font-weight-bold">My Profile</h5>
                 <div class="row g-2">
-                    <div class="col-4">
-                        <img class="img-fluid" src="{{asset('img/portfolio-1.jpg')}}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid" src="{{asset ('img/portfolio-2.jpg')}}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid" src="{{asset ('img/portfolio-3.jpg')}}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid" src="{{asset ('img/portfolio-4.jpg')}}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid" src="{{asset ('img/portfolio-5.jpg')}}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid" src="{{asset ('img/portfolio-6.jpg')}}" alt="Image">
-                    </div>
+                    <a class="btn btn-link d-block" href="">My Profile</a>
+                    <a class="btn btn-link d-block" href="">Orders and Order History</a>
+                    <a class="btn btn-link d-block" href="">Wishlist</a>
+                    <a class="btn btn-link d-block" href="">Newsletter</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
-                <h5 class="text-white mb-4">Newsletter</h5>
+                <h5 class="text-dark mb-4 text-uppercase font-weight-bold">Stay in Touch</h5>
                 
-                <div class="position-relative w-100 " style="margin-top: 20%">
-                    <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">
-                    <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
+                <div class="position-relative w-100">
+                    <input class="form-control border-1 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">
+                    <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-dark fs-4"></i></button>
+                </div>
+                <div class="d-flex pt-2 pl-20">
+                    <a class="btn btn-social" href=""><i class="fab fa-twitter text-dark"></i></a>
+                    <a class="btn btn-social" href=""><i class="fab fa-facebook-f text-dark"></i></a>
+                    <a class="btn btn-social" href=""><i class="fab fa-instagram text-dark"></i></a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container px-lg-5">
+    {{-- <div class="container px-lg-5">
         <div class="copyright">
             <div class="row">
                 <div class="col-md-12 text-center text-md-end">
@@ -201,7 +200,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 <!-- Footer End -->
 
