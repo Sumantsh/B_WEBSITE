@@ -51,8 +51,6 @@
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
 
-           
-
                 <div class="nav_items">
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -96,9 +94,9 @@
             </div>
         </div>
         <div class="social">
-            <i class="fa-regular fa-heart"></i>
-            <i class="fa-regular fa-user"></i>
-            <i class="fa-solid fa-store"></i>
+            <i class="fa fa-phone"></i>
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-user"></i>
         </div>
 
         <div class="hamburger_wrapper">
@@ -113,12 +111,14 @@
     <div class="down_nav">
         <div class="mynav" style="">
 
+
            <div class="nav_items">
             <a href="{{URL ('/')}}" style="font-weight:500" class="nav-item my-item   active">Home</a>
            </div>             
            
            <div class="nav_items" id="nav_items" >
             <a href="{{URL ('products')}}"  style="font-weight:500" class="nav-item my-item  ">Products<span id="drop_arrow"><i class="fa-solid fa-chevron-down"></i></span></a> 
+
 
             <div class="component_drop">
                 <div class="up">
@@ -177,7 +177,8 @@
 
 
 
-  <div class="container-fluid d-lg-flex">
+<div class="container-fluid d-lg-flex">
+
     <div class="container py-4">
         <p class='text-light my-0'>Class, Inspiration, Latest News and Awesomeness</p>
         <p class='font-size-1-4 my-0'>New ideas and a whole bunch of madness delivered to your inbox as it happens!</p>
@@ -189,11 +190,11 @@
         <input type="button" value="Subscribe" class='bg-dark text-light'>
     </div>
     
-  </div>
+</div>
 
-  
 
-  <div class="container-fluid text-dark bg-white footerpt-5 wow fadeIn" data-wow-delay="0.1s">
+<div class="container-fluid text-dark bg-white footerpt-5 wow fadeIn" data-wow-delay="0.1s">
+
     <div class="container py-5 px-lg-1">
 
         <div class="row g-5">
@@ -251,6 +252,7 @@
 </div>
 <!-- Footer End -->
 
+<livewire:cart />
 
 <!-- Back to Top -->
 

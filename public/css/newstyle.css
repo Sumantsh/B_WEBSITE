@@ -836,18 +836,26 @@ header {
     text-align: center;
     cursor: pointer;
     transition: 0.04s;
-    box-shadow: 4px 4px 30px rgba(0 0 0  /.2);
+    box-shadow: 2px 2px 25px rgba(0 0 0  /.2);
     margin: 4% 0px;
     min-height: 400px;
+    
 }
 
 
 .products-grid .products-grid-container .product-show .product-show-image img {
     width: 40%;
+    mix-blend-mode: multiply;
+    transition: all 0.3s ease-out;
+}
+
+.products-grid .products-grid-container .product-show .product-show-image img:hover {
+    transform: scale(1.1);
 }
 
 .products-grid .products-grid-container .product-show:hover {
-    transform: scale(1.02);
+    mix-blend-mode: multiply;
+    box-shadow: 4px 4px 30px rgba(0 0 0  /.5);
 }
 
 

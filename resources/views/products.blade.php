@@ -21,7 +21,7 @@
         <div class="products-grid-container">
 
             @foreach ($products as $product)
-            <a href="">
+            <a href="product_details/{{$product['prd_id']}}">
                 <div class="product-show">
                     <div class="product-show-image">
                         <img src="{{asset ($product['prd_img'])}}" >
