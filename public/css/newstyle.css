@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 
-
+:root {
+    --theme_color: #D70B55;
+}
 
 
 header {
@@ -15,7 +17,7 @@ header {
     /* background: linear-gradient(to top, rgba(238, 171, 54,.9), rgba(255, 141, 79,.7), #ff6f7c); */
     background: white;
     box-shadow: 4px 4px 10px rgba(0 0 0 /.4);
-    z-index: 2;
+    z-index: 10;
 }
 
 .top_nav {
@@ -28,6 +30,71 @@ header {
     padding: 10px 0px;
     /* grid-template-columns: repeat(3, 1fr ); */
 }
+
+/* siper slider */
+
+.owl_wrapper {
+    width: 100%;
+    height: 78vh;
+}
+
+.slide1 {
+    width: 100%;
+    height: 78vh;
+    background:  url('../img/banner/1.webp') 100%;
+    background-position: 20%;
+    background-size:auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+}
+
+.slide1 h2 {
+    color: white;
+    font-size: 2.5rem;
+    background-color:  rgba(255 255 255 /.7);
+    padding: 50px;
+    text-transform: uppercase;
+    display: none;
+    background-size:auto;
+
+
+}
+
+
+ .slide2 {
+    width: 100%;
+    height: 78vh;
+    background-size: cover;
+    background: url('../img/banner/2.webp') 100%;
+    background-position: 20%;
+    background-size:auto;
+
+  }
+ 
+  .slide3 {
+    width: 100%;
+    height: 78vh;
+    background-size: cover;
+    background: url('../img/banner/3.webp') 100%;
+    background-position: 20%;
+    background-size:auto;
+
+
+  }
+ 
+  .slide4 {
+    width: 100%;
+    height: 78vh;
+    background-size: cover;
+    background: url('../img/banner/4.webp') 100%;
+    background-position: 20%;
+    background-size:auto;
+
+  }
+
+  /* swiper end */
 
 .hamburger_wrapper {
 
@@ -226,7 +293,7 @@ header {
     opacity: 0;
     visibility: hidden;
     border-radius: 20px;
-    background-color: #36393B;
+    background-color: #D70B55;
     transition: .3s all ease-in-out;
 }
 
@@ -313,6 +380,7 @@ header {
     box-shadow: 4px 4px 30px rgba(0 0 0 /.2);
     outline: 2px solid skyblue;
     border-radius: 8px;
+    transform: translateY(-10px);
 }
 
 .prd_img {
@@ -383,7 +451,7 @@ header {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #5883f6;
+    background-color: var(--theme_color);
     color: white;
     font-weight: 600;
 }
@@ -391,6 +459,69 @@ header {
 .prd_img img {
     width: 100%;
 }
+
+.small_banner_wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    /* background-color: red; */
+    margin: 4% 0px;
+    padding: 0px 20px;
+    width: 100%;
+    gap: 20px;
+    /* height: 500px; */
+}
+
+.small_banner img  {
+
+    width: 100%;
+    transition: .3s all linear;
+
+}
+
+.small_banner img:hover  {
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0 0 0 /.2);
+    transform:  scaleX(-1);
+}
+
+.shiping_polcy {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px 2rem;
+    gap: 40px;
+}
+
+.serivces {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 00px;
+    box-shadow: 4px 4px 30px rgba(0 0 0  /.2);
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.serivces i {
+    transform: translateY(-26px);
+    font-size: 4rem;
+    color: white;
+    padding: 10px;
+    background-color: var(--theme_color);
+    border-radius: 50%;
+    transition: .3s all ease-in-out;
+
+}
+
+.serivces i:hover {
+   
+    box-shadow: 2px 8px 8px rgba(0 0 0  /.2);
+
+}
+
+
 
 .btn-link {
     color: white;
@@ -753,10 +884,20 @@ header {
 }
 
 @media (min-width:600px) {
+
+
     .prd_wrapper {
         /* grid-template-columns: repeat(1, 1fr); */
         padding: 0px 10px;
         }
+
+     .shiping_polcy {
+        grid-template-columns: 1fr 1fr;
+     }   
+
+
+
+
 }
 
 @media (min-width:768px) { 
@@ -780,6 +921,7 @@ header {
         width: 100%;
         height: 100%;
         justify-content: center;
+        align-items: center;
         backdrop-filter: blur(0px);
     }
 
@@ -968,7 +1110,7 @@ header {
 @media (min-width:1366px) {
 
     .prd_wrapper {
-        grid-template-columns: repeat(4, 320px);
+        grid-template-columns: repeat(4, 300px);
     }
 
     .mynav {
@@ -980,6 +1122,73 @@ header {
         height: 100px;
         
     }
+
+    .small_banner_wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        padding: 0px 5rem;
+        position: relative;
+        /* overflow: hidden; */
+     
+    }
+
+    #small_baner_bg {
+        width: 90%;
+        height: 419px;
+        background: linear-gradient(to top, rgba(0 0 0 /.2),rgba(0 0 0 /.4));
+        z-index: 2;
+        position: absolute;
+        top: -1200px;
+        left: 0%;
+        right: 0;
+        opacity: 0;
+        margin: auto;
+        color: white;
+        transition: .5s all ease-in-out;
+    }
+
+
+
+
+    .long_banner {
+        grid-column: span 3;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        background-color: red;
+        background: url("../img/smallbanner/5.webp") 100%;
+        background-size: cover;
+        transition: .3s all linear;
+    }
+
+    .long_banner:hover {
+        transform: translateY(-10px);
+    }
+
+    .shiping_polcy {
+        grid-template-columns: repeat(4,300px);
+        background-color: rgba(174, 169, 169, 0.2);
+        justify-content: center;
+     
+    }
+
+    .serivces {
+        padding: 10px 0px;
+    }
+
+    .serivces i {
+        font-size: 2.8rem;
+        border-radius: 50%;
+    }
+
+    .serivces h2 {
+        font-size: 1.2rem;
+    }
+
+    .shiping_polcy {
+        grid-template-columns: repeat(4,1fr);
+     }   
+
 
     
 }

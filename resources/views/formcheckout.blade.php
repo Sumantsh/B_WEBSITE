@@ -39,6 +39,10 @@
         <img src="{{ asset ('img/secure.png')}}" alt="">
     </div>
 </div>
+
+<div class="checkout_wrapper">
+    <h2>Checkout</h2>
+</div>
     
    
 
@@ -125,9 +129,11 @@
             <h2 class="bill_heading">Billing Details</h2>
 
             <form id="form1">
-                <div class="input">
-                    <label for="">Name</label>
-                    <input type="text" placeholder="Fullname" name="name"  required>
+                <div class="input" id="first_last_wrapper" style="flex-direction: row;gap:20px;">
+                    <label for="">First Name</label>
+                    <input type="text" placeholder="Firstname" name="firstname"  required>
+                    <label for="">Last Name</label>
+                    <input type="text" placeholder="Lastname" name="lastname"  required>
                 </div>
 
                 <div class="input">
@@ -141,13 +147,18 @@
                 </div>
 
                 <div class="input">
-                    <label for="date">Date of Birth</label>
-                    <input type="date" placeholder="date" name="date" required>
+                    <label for="date" style="display: block">Date of Birth</label>
+                    <input type="date" " name="date" required>
                 </div>
 
                 <div class="input">
                     <label for="">Address</label>
                     <input type="text" placeholder="Address" name="address" required>
+                </div>
+
+                <div class="input">
+                    <label for="city">City</label>
+                    <input type="text" placeholder="City" name="city" required>
                 </div>
 
                 <div class="input">
@@ -159,12 +170,12 @@
 
                     <div class="state">
                         <label for="">State</label>
-                        <input type="text" placeholder="State" name="state" required>
+                        <input style="padding:10px" type="text" placeholder="State" name="state" required>
                     </div>
 
                     <div class="state">
                         <label for="">Zip/Postal Code</label>
-                        <input type="text" placeholder="Zip" name="zip" required>
+                        <input type="text" style="padding:10px" placeholder="Zip" name="zip" required>
                     </div>
 
 

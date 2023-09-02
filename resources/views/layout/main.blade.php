@@ -19,6 +19,9 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css" integrity="sha512-C8Movfk6DU/H5PzarG0+Dv9MA9IZzvmQpO/3cIlGIflmtY3vIud07myMu4M/NTPJl8jmZtt/4mC9bAioMZBBdA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Libraries Stylesheet -->
     {{-- <link href="lib/animate/animate.min.css" rel="stylesheet"> --}}
@@ -111,11 +114,11 @@
         <div class="mynav" style="">
 
            <div class="nav_items">
-            <a href="{{URL ('/')}}" style="font-weight:500" class="nav-item my-item  nav-link active">Home</a>
+            <a href="{{URL ('/')}}" style="font-weight:500" class="nav-item my-item   active">Home</a>
            </div>             
            
            <div class="nav_items" id="nav_items" >
-            <a href="{{URL ('products')}}"  style="font-weight:500" class="nav-item my-item nav-link ">COMPUTER COMPONENTS <span id="drop_arrow"><i class="fa-solid fa-chevron-down"></i></span></a> 
+            <a href="{{URL ('products')}}"  style="font-weight:500" class="nav-item my-item  ">Products<span id="drop_arrow"><i class="fa-solid fa-chevron-down"></i></span></a> 
 
             <div class="component_drop">
                 <div class="up">
@@ -137,22 +140,15 @@
 
             </div>
 
-            <div class="nav_items">
-                <a href="{{URL ('products')}}"  style="font-weight:500" class="nav-item my-item nav-link ">
-                    PRE-BUILD SYSTEMS <span><i class="fa-solid fa-chevron-down"></i></span></a>
 
-                    <div class="prebuild_drop">
-                        <a href=""></a>
-                    </div>
-            </div>
 
             <div class="nav_items">
-                <a href="{{URL ('service')}}"  style="font-weight:500" class="nav-item my-item nav-link ">Service</a>
+                <a href="{{URL ('service')}}"  style="font-weight:500" class="nav-item my-item  ">Service</a>
             </div>
 
 
             <div class="nav_items">
-                <a href="{{URL ('about')}}"  style="font-weight:500" class="nav-item my-item nav-link ">About</a>
+                <a href="{{URL ('about')}}"  style="font-weight:500" class="nav-item my-item ">About</a>
             </div>
                         
             <div class="nav_items">
@@ -180,6 +176,7 @@
 
 
 
+
   <div class="container-fluid d-lg-flex">
     <div class="container py-4">
         <p class='text-light my-0'>Class, Inspiration, Latest News and Awesomeness</p>
@@ -193,6 +190,8 @@
     </div>
     
   </div>
+
+  
 
   <div class="container-fluid text-dark bg-white footerpt-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-5 px-lg-1">
@@ -260,8 +259,10 @@
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{asset ('js/app.js')}}" ></script>
 <script src="{{asset ('js/new.js')}}" ></script>
+<script src="{{asset ('js/swiper.js')}}" ></script>
 <@livewireScripts
 </body>
 
