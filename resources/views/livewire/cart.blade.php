@@ -68,7 +68,7 @@
     @endif
     
     <div id="carticon2" wire:click="toggleCart">
-        <img src="{{ asset ('img/icon/bagicon.svg') }}" class="bagicon" alt="">
+        <i class="fa-solid fa-store" class="bagicon"></i>
         <div
             style="position: absolute; background: black; border-radius: 50%; width:40px;height:40px; color: white; text-align: center; top: -12px; left: -7px; box-shadow: 2px 2px 4px rgba(0, 0, 0,.4) ; display:flex; justify-content:center; align-items:center; ">
             <span>{{count($products)}}</span></div>
