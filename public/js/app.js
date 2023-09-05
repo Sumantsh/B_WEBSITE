@@ -3,13 +3,14 @@ $(document).ready(function() {
         e.preventDefault();
 
         const data = {
-            name: $("[name=name]").val(),
+            name: $("[name=firstname]").val() + " " + $("[name=lastname]").val(),
             phoneNumber: $("[name=phone_number]").val(),
             email: $("[name=email]").val(),
             address: $("[name=address]").val(),
             country: $("[name=country]").val(),
             state: $("[name=state]").val(),
-            zip: $("[name=zip]").val()
+            zip: $("[name=zip]").val(),
+            shipping: $(".toPay").text() - $(".prd-total").text()
         };
 
         fetch("/form-route", {
@@ -31,13 +32,13 @@ $(document).ready(function() {
         // Check if the page has been scrolled by at least 100px
         if ($(this).scrollTop() >= 100) {
           // Make the navbar sticky
-          $('#myheader').css('position', 'fixed');
-          $('#myheader').css('top', '0');
+            $('#myheader').css('position', 'fixed');
+            $('#myheader').css('top', '0');
         } else {
           // Reset the navbar to its default position
-          $('#myheader').css('position', 'relative');
-          $('#myheader').css('top', '0');
+            $('#myheader').css('position', 'relative');
+            $('#myheader').css('top', '0');
         }
-      });
+    });
 
 });

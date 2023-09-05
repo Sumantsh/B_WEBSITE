@@ -30,9 +30,7 @@ class PaymentController extends Controller
                 'price' => $total,
                 'prd_title' => $prd_title
             ]);
-        } else {
-            return abort(404, 'No Such Page Exist.');
-        }
+        } 
     }
 }
 
