@@ -6,9 +6,7 @@
 @section('content')
 
 <div class="owl-carousel owl-theme owl_wrapper">
-    <div class="item slide1">
-        <h2>Buy Processor on Affordable Prices</h2>
-    </div>
+    <div class="item slide1"></div>
     <div class="item slide2"></div>
     <div class="item slide3"></div>
     <div class="item slide4"></div>
@@ -176,10 +174,17 @@
 
 
 
+
+
   
         @endfor
 
 
+    </div>
+
+
+    <div class="readmore_wrapper">
+        <a href="{{ url ('products')}}" class="read_more">Buy More Products</a>
     </div>
 
     <div class="shiping_polcy">
@@ -202,6 +207,8 @@
         </div>
         
     </div>
+
+
 
 
 @endsection

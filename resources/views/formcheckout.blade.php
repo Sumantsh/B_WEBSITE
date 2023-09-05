@@ -62,7 +62,7 @@
             <div class="new_order">
                 <div class="price_wrapper">
                     <h2>Your Order</h2>
-                    <p><span>228</span> $</p>
+                    <p><span>{{$products->}}</span> $</p>
                 </div>
                 {{-- <p><span class="qnty">1+</span> <span class="product_name">{{ $prd_title }}</span> </p> --}}
                 {{-- <h2 class="item_price text-light"><span>$ {{ $price }}</span></h2> --}}
