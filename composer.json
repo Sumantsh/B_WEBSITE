@@ -12,7 +12,8 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.12",
-        "paypal/paypal-checkout-sdk": "^1.0"
+        "paypal/paypal-checkout-sdk": "^1.0",
+        "stripe/stripe-php": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

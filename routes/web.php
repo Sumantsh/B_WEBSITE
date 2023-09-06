@@ -10,6 +10,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\HomepageConstroller;
 use App\Http\Controllers\PayPalPaymentController;
 use App\Http\Controllers\ProductDetailController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\WebsiteProductController;
 
 
@@ -140,5 +141,9 @@ Route::get('/paypal/create-payment', [PayPalPaymentController::class, 'createPay
 Route::get('/paypal/success', [PayPalPaymentController::class, 'success'])->name('paypal.success');
 Route::get('/paypal/cancel',  [PayPalPaymentController::class, 'cancel'])->name('paypal.cancel');
 Route::get('/paypal/error', [PayPalPaymentController::class, 'error'])->name('paypal.error');
+
+Route::get("/stripe/create-payment", [StripeController::class, 'createPayment'])->name('stripe.create');
+Route::get('/stripe/success', [StripeController::class, 'success'])->name('payment.success');
+
 
 Route::post("/add-to-cart", [Cart::class, 'addToCart']);
