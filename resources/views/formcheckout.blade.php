@@ -162,7 +162,11 @@
                 </div>
 
                 <div class="paybutton">
-                    <button id="paynow" class="" type="submit">Pay Now USD<span style="color: skyblue;padding:0px 10px" class="toPay">{{ $price }}</span></button>
+                    <button id="paynow" class="paynow-paypal" type="button">Pay Now USD<span style="color: skyblue;padding:0px 10px" class="toPay">{{ $price }}</span></button>
+                </div>
+
+                <div class="paybutton">
+                    <button id="paynow" class="paynow-stripe" type="button">Pay Now USD<span style="color: skyblue;padding:0px 10px" class="toPay-stripe">{{ $price }}</span></button>
                 </div>
 
                 {{-- <div class="paypal_wrapper">
@@ -184,6 +188,7 @@
                 if(radio[i].checked) {
                     document.querySelector(".total-price").innerHTML = Number(document.querySelector(".subtotal-price").innerHTML) + Number(radio[i].dataset.shippingcharge);
                     document.querySelector(".toPay").innerHTML = document.querySelector(".total-price").innerHTML;
+                    document.querySelector(".toPay-stripe").innerHTML = document.querySelector(".total-price").innerHTML;
                 }
             } 
         }
@@ -191,6 +196,7 @@
             radio[i].addEventListener("change", () => {
                 document.querySelector(".total-price").innerHTML = Number(document.querySelector(".subtotal-price").innerHTML) + Number(radio[i].dataset.shippingcharge);
                     document.querySelector(".toPay").innerHTML = document.querySelector(".total-price").innerHTML;
+                    document.querySelector(".toPay-stripe").innerHTML = document.querySelector(".total-price").innerHTML;
             })
         }
         updatePrices();

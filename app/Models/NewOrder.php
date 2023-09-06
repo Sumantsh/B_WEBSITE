@@ -20,8 +20,4 @@ class Neworder extends Model
         'qty',
         'mg'
     ]; 
-
-    protected $hidden = [
-        
-    ];
 }

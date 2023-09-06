@@ -170,7 +170,7 @@
 @yield('product_details')
 @yield('Checkout')
 @yield('products')
-
+@yield('stripe')
 
 <!-- Footer Start -->
 
