@@ -2,7 +2,7 @@
 @extends('layout.main')
 
 @section('stripe')
-    <div class="container">
+    <div class="container ">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <form id="payment-form">
@@ -10,6 +10,7 @@
                         <label for="card-element">
                             Credit or debit card
                         </label>
+
                         <div id="card-element">
                             <!-- A Stripe Element will be inserted here. -->
                         </div>
@@ -31,14 +32,20 @@
         // Create a Stripe client.
         var stripe = Stripe('{{ config('services.stripe.key') }}');
 
+
         // Create an instance of Elements.
         var elements = stripe.elements();
+
+        
+      
 
         // Create an instance of the card Element.
         var card = elements.create('card');
 
         // Add an instance of the card Element into the `card-element` div.
         card.mount('#card-element');
+
+        
 
         // Handle real-time validation errors from the card Element.
         card.addEventListener('change', function(event) {
