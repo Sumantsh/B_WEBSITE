@@ -6,8 +6,8 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
-                    <img src="https://stripe.com/img/v3/home/social.png" alt="Stripe" class="stripe-logo">
+                <div class="card-header1">
+                    <img src="{{asset ('img/stripe.png')}}" alt="Stripe" class="stripe-logo">
                 </div>
                 <div class="card-body">
                     <form id="payment-form">
@@ -24,8 +24,8 @@
 
                         <div class="img-form-group">
                             <img src="{{asset("img/visa.png")}}" alt="Visa" class="card-brand">
-                            <img src="{{asset("img/mastercard.png")}}" alt="MasterCard" class="card-brand">
-                            <img src="{{asset("img/americanexpress.png")}}" alt="American Express" class="card-brand">
+                            <img src="{{asset("img/master2.png")}}" alt="MasterCard" class="card-brand">
+                            <img src="{{asset("img/americanexpress2.png")}}" alt="American Express" class="card-brand">
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-block btn-lg">
@@ -143,6 +143,7 @@
     border-radius: 8px;
     margin-bottom: 20px;
     font-size: 16px;
+    width: 400px;
 }
 
 /* Style form errors */
@@ -168,6 +169,13 @@
 .img-form-group {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+}
+
+.img-form-group img {
+    min-height: 70px;
+    min-width: 100%;
+    
+
 }
 
 /* Add hover effect for the pay button */

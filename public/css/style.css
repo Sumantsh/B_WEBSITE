@@ -226,7 +226,7 @@ img {
 }
 
 .paybutton #paynow {
-    background-color: var(--theme_color);
+    background:linear-gradient(-120deg,#003087, #009cde, #012169);
     border-radius: 4px;
     color: white;
     font-weight: 600;
@@ -235,10 +235,28 @@ img {
     text-align: center;
     padding: 10px 10px;
     border: none;
-    
-
-
 }
+
+.paybutton #stripe_paynow {
+    background:#635bff;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 10px;
+    border: none;
+}
+.checkbox {
+    /* background-color: red; */
+    padding-left: 20px;
+}
+
+/* codepne */
+
+
+
 
 .card {
     display: flex;

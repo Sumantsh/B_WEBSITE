@@ -109,7 +109,7 @@
 
 
         <div class="leftformwrapper">
-            <h2 class="bill_heading">Billing Details</h2>
+            <h2 class="bill_heading">Shipping Address</h2>
             <form id="form1">
                 <div class="input" id="first_last_wrapper" style="flex-direction: row;gap:20px;">
                     <label for="">First Name</label>
@@ -135,38 +135,81 @@
 
                 <div class="input">
                     <label for="">Address</label>
-                    <input type="text" placeholder="Address" name="address" required>
+                    <input type="text" class="shipping_address"   placeholder="Address" name="address" required>
                 </div>
 
                 <div class="input">
                     <label for="city">City</label>
-                    <input type="text" placeholder="City" name="city" required>
+                    <input type="text" class="shipping_city" placeholder="City" name="city" required>
                 </div>
 
                 <div class="input">
                     <label for="">Country</label>
-                    <input type="text" placeholder="Country" name="country" required>
+                    <input type="text" placeholder="Country" class="shipping_Country" name="country" required>
                 </div>
 
                 <div class="state_input" style="background: ;">
 
                     <div class="state">
                         <label for="">State</label>
-                        <input style="padding:10px" type="text" placeholder="State" name="state" required>
+                        <input style="padding:10px" class="shipping_state" type="text" placeholder="State" name="state" required>
                     </div>
 
                     <div class="state">
                         <label for="">Zip/Postal Code</label>
-                        <input type="text" style="padding:10px" placeholder="Zip" name="zip" required>
+                        <input type="text" class="shipping_zip" style="padding:10px" placeholder="Zip" name="zip" required>
                     </div>
                 </div>
 
+                
+					<div class="checkbox">
+						<input class="checked" type="checkbox">	
+						<label>
+							<strong>Is the Billing Address the same as the Shipping Address?</strong>
+						</label>
+					</div>
+
+              
+
+                <div class="shipping">
+					<h3 style="margin: 4% 0px;padding-left:20px">Billing Address</h3>
+
+                    <div class="input">
+                        <label for="">Address</label>
+                        <input type="text" placeholder="Address" name="_shipping_address" class="billing_address" required>
+                    </div>
+    
+                    <div class="input">
+                        <label for="city">City</label>
+                        <input type="text" class="billing_city" placeholder="City" name="billing_city" required>
+                    </div>
+    
+                    <div class="input">
+                        <label for="">Country</label>
+                        <input type="text" class="billing_country" placeholder="Country" name="billing_country" required>
+                    </div>
+    
+                    <div class="state_input" style="background: ;">
+    
+                        <div class="state">
+                            <label for="">State</label>
+                            <input style="padding:10px" class="billing_state" type="text" placeholder="State" name="billing_state" required>
+                        </div>
+    
+                        <div class="state">
+                            <label for="">Zip/Postal Code</label>
+                            <input type="text" class="billing_zip" style="padding:10px" placeholder="Zip" name="billing_zip" required>
+                        </div>
+				
+				
+			</div>
+
                 <div class="paybutton">
-                    <button id="paynow" class="paynow-paypal" type="button">Pay Now USD<span style="color: skyblue;padding:0px 10px" class="toPay">{{ $price }}</span></button>
+                    <button id="paynow" class="paynow-paypal" type="button"> <span><i class="fa-brands fa-paypal"></i></span> Paypal<span style="color: white;padding:0px 10px" class="toPay">{{ $price }}</span></button>
                 </div>
 
                 <div class="paybutton">
-                    <button id="paynow" class="paynow-stripe" type="button">Pay Now USD<span style="color: skyblue;padding:0px 10px" class="toPay-stripe">{{ $price }}</span></button>
+                    <button id="stripe_paynow" class="paynow-stripe" type="button"><span><i class="fa-brands fa-stripe-s"></i></span> Stipe<span style="color: white;padding:0px 10px" class="toPay-stripe">{{ $price }}</span></button>
                 </div>
 
                 {{-- <div class="paypal_wrapper">
@@ -178,6 +221,8 @@
                 {{-- {{ route ('paypal.create')}} --}}
 
             </form>
+
+
         </div>
     </div>
 
@@ -200,6 +245,37 @@
             })
         }
         updatePrices();
+        
+        const input_checked = document.querySelector('.checked');
+
+        input_checked.addEventListener('click', () =>{
+
+            if(input_checked.checked) {
+
+                let shipping_address = document.querySelector('.shipping_address').value
+                let shipping_city = document.querySelector('.shipping_city').value
+                let shipping_Country = document.querySelector('.shipping_Country').value
+                let shipping_state = document.querySelector('.shipping_state').value
+                let shipping_zip = document.querySelector('.shipping_zip').value
+
+                document.querySelector('.billing_address').value = shipping_address
+                document.querySelector('.billing_city').value = shipping_city
+                document.querySelector('.billing_Country').value = shipping_Country
+                document.querySelector('.billing_state').value = shipping_state
+                document.querySelector('.billing_zip').value = shipping_zip
+
+
+               
+
+
+
+
+            }
+
+
+        })
+        
+
     </script>
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
