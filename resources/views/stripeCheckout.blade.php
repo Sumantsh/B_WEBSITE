@@ -1,6 +1,7 @@
 @extends('layout.main')
 
 @section('stripe')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -18,6 +19,7 @@
 
                             <!-- Used to display form errors. -->
                             <div id="card-errors" role="alert"></div>
+
                         </div>
 
                         <div class="img-form-group">
@@ -55,6 +57,7 @@
         },
     });
 
+
     // Add an instance of the card Element into the `card-element` div.
     card.mount('#card-element');
 
@@ -68,10 +71,12 @@
         }
     });
 
+
     // Handle form submission.
     var form = document.getElementById('payment-form');
     form.addEventListener('submit', function(event) {
         event.preventDefault();
+
 
         stripe.confirmCardPayment("{{ $clientSecret }}", {
             payment_method: {
@@ -82,6 +87,7 @@
                 // Show error to your customer.
                 var errorElement = document.getElementById('card-errors');
                 errorElement.textContent = result.error.message;
+
             } else {
                 // Payment succeeded, handle the success here.
                 // You can send an AJAX request to the server to complete the order.

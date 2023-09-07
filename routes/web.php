@@ -6,11 +6,12 @@ use App\Http\Livewire\Cart;
 use App\Models\Add_prodocts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\HomepageConstroller;
 use App\Http\Controllers\PayPalPaymentController;
 use App\Http\Controllers\ProductDetailController;
-use App\Http\Controllers\StripeController;
 use App\Http\Controllers\WebsiteProductController;
 
 
@@ -125,6 +126,9 @@ Route::get("/payment", function() {
 Route::get("/redirect", function(Request $request) {
     return response()->json(['message' => 'Success']);
 });
+
+Route::get("/order_detail",[MailController::class,'mail']);
+
 
 
 Route::post("/form-route", function(Request $request) {
