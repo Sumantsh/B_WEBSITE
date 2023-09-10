@@ -72,6 +72,6 @@ class StripeController extends Controller
         }
         
         Session::flash('success', 'Payment successful! Thank you for your purchase.');
-        return redirect()->route('home'); // Replace 'home' with the desired route after successful payment
+        return redirect()->route('https://edlifecare.com/'); // Replace 'home' with the desired route after successful payment
     }
 }

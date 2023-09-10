@@ -39,8 +39,13 @@ use App\Http\Controllers\WebsiteProductController;
 Route::get('/' , [HomepageConstroller::class, 'Homepage'])->name("home");
 
 
+
 Route::get('/about', function () {
     return view('about');
+});
+
+Route::get('/success', function () {
+    return view('success');
 });
 
 Route::get('/contact', function () {
