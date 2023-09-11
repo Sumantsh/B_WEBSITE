@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <title>@yield('title')</title>
+    <title>CHECKOUT PAGE</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -81,16 +81,16 @@
                     <td class="radio_td">
                         
                     <div class="shiping_grp" >
-                        <input type="radio" name="normal_shiping" id="normal_shiping" data-shippingCharge="12" checked><span class="shipping">5-10 Day Shipment</span> <span class="shipping" style="color: skyblue;margin:0px 5px">12</span> 
-                        <span class="shipping" style="color: skyblue;margin:0px 5px">$</span>
+                        <input type="radio" required name="normal_shiping" id="normal_shiping" data-shippingCharge="12" checked><span class="shipping">5-10 Day Shipment</span> <span class="shipping" style="color: skyblue;margin:0px 10px">15</span> 
+                        <span class="shipping" style="color: skyblue;margin:0px 0px">$</span>
                     </div>
                         
                     <div class="shiping_grp">
-                        <input type="radio" name="normal_shiping" id="normal_shiping" data-shippingCharge="25" ><span class="shipping">3-4 Day Shipment</span> <span style="color: skyblue;margin:0px 5px" class="shipping">25</span> <span style="color: skyblue;margin:0px 5px" class="shipping">$</span>
+                        <input type="radio" required name="normal_shiping" id="normal_shiping" data-shippingCharge="25" ><span class="shipping">3-4 Day Shipment</span> <span style="color: skyblue;margin:0px 2 5px" class="shipping">25</span> <span style="color: skyblue; margin:0px 0px" class="shipping">$</span>
                     </div>
                         
                     <div class="shiping_grp">
-                        <input type="radio" name="normal_shiping" id="normal_shiping" disabled><span class="shipping">1 Day Shipment</span> <span  class="shipping" style="color: skyblue; text-decoration:line-through;:0px 5px;text-decoration-color: var(--theme_color);">Not Available</span> 
+                        <input type="radio" required name="normal_shiping" id="normal_shiping" disabled><span class="shipping">1 Day Shipment</span> <span  class="shipping" style="color: skyblue; text-decoration:line-through;:0px 5px;text-decoration-color: var(--theme_color);">Not Available</span> 
                     </div>
                 </td>
                 </tr>
@@ -109,7 +109,7 @@
 
 
         <div class="leftformwrapper">
-            <h2 class="bill_heading">Shipping Address</h2>
+            <h2 class="bill_heading">Billing Address</h2>
             <form id="form1">
                 <div class="input" id="first_last_wrapper" style="flex-direction: row;gap:20px;">
                     <label for="">First Name</label>
@@ -135,7 +135,7 @@
 
                 <div class="input">
                     <label for="">Address</label>
-                    <input type="text" required class="shipping_address"   placeholder="Address" name="address" required>
+                    <input type="text" required class="shipping_address"  placeholder="Address" name="address" required>
                 </div>
 
                 <div class="input">
@@ -165,14 +165,14 @@
 					<div class="checkbox">
 						<input class="checked" type="checkbox" required>	
 						<label>
-							<strong>Is the Billing Address the same as the Shipping Address?</strong>
+							<strong>Is the Shipping Address the same as the Billing Address?</strong>
 						</label>
 					</div>
 
               
 
                 <div class="shipping">
-					<h3 style="margin: 4% 0px;padding-left:20px">Billing Address</h3>
+					<h3 style="margin: 4% 0px;padding-left:20px">Shipping Address</h3>
 
                     <div class="input">
                         <label for="">Address</label>
@@ -208,15 +208,16 @@
 
                 <div class="paybutton">
                     <input type="checkbox" name="" id="">
-                    <button id="paynow" class="paynow-paypal" type="button"> <span><i class="fa-brands fa-paypal"></i></span> Paypal</button>
+                    <button id="paynow" class="paynow-paypal" type="button"> <span><i class="fa-brands fa-paypal"></i></span> Paypal<span style="color: white;padding:0px 10px" class="toPay">{{ $price }}</span></button>
+
                 </div>
 
                 <div class="paybutton">
-                    <input type="checkbox" name="" id=""> <button id="stripe_paynow" class="paynow-stripe" type="button"><span><i class="fa-brands fa-stripe-s"></i></span> Stripe</button>
+                    <input type="checkbox" name="" id="">  <button id="stripe_paynow" class="paynow-stripe" type="button"><span><i class="fa-brands fa-stripe-s"></i></span> Stipe<span style="color: white;padding:0px 10px" class="toPay-stripe">{{ $price }}</span></button>
+
                 
                 </div>
 
-                {{-- <span style="color: white;padding:0px 10px" class="toPay-stripe">{{ $price }}</span> --}}
 
                 <div class="paybutton">
                     <input type="checkbox" name="" id="">  <button id="card_paynow" class="paynow-stripe" type="button"><span><i class="fa-solid fa-credit-card"></i></span> Debit/Credit</button>

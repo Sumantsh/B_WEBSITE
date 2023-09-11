@@ -273,12 +273,18 @@ img {
 
 
 .card {
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 4px 4px 10px rgba(0 0 0 /.2);
+    margin: 0px auto;
+    padding: 0px 10px;
 }
 
+.card img {
+    width: 100%;
+}
 
 .rightwrapper {
     order: -1;
@@ -443,7 +449,7 @@ font-size: 1.4rem;
 }
 
 .shiping_grp{
-    width: 80%;
+    width: auto;
     color: #232323;
     display: flex;
     /* justify-content: space-around; */
@@ -731,7 +737,7 @@ font-size: 1.4rem;
 
     .button_wrapper {
         display: grid;
-        grid-template-columns: repeat(1,200px);
+        grid-template-columns: repeat(3,200px);
         gap: 10px;
         padding: 10px;
     }
@@ -765,7 +771,7 @@ font-size: 1.4rem;
     }
 
     .cart_wapper {
-        width: 600px;
+        width: 550px;
         margin-top: 0rem;
 
     }
