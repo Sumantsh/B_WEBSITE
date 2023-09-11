@@ -56,6 +56,9 @@
     });
 
 
+    console.log(card);
+
+
     // Add an instance of the card Element into the `card-element` div.
     card.mount('#card-element');
 
