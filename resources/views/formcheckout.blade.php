@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <title>@yield('title')</title>
+    <title>CHECKOUT PAGE</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -80,17 +80,17 @@
                     
                     <td class="radio_td">
                         
-                    <div class="shiping_grp">
-                        <input type="radio" name="normal_shiping" id="normal_shiping" data-shippingCharge="12" checked><span>5-10 Day Shipment</span> <span style="color: skyblue;margin:0px 5px">12</span> 
-                        <span style="color: skyblue;margin:0px 5px">$</span>
+                    <div class="shiping_grp" >
+                        <input type="radio" required name="normal_shiping" id="normal_shiping" data-shippingCharge="12" checked><span class="shipping">5-10 Day Shipment</span> <span class="shipping" style="color: skyblue;margin:0px 10px">15</span> 
+                        <span class="shipping" style="color: skyblue;margin:0px 0px">$</span>
                     </div>
                         
                     <div class="shiping_grp">
-                        <input type="radio" name="normal_shiping" id="normal_shiping" data-shippingCharge="25" ><span>3-4 Day Shipment</span> <span style="color: skyblue;margin:0px 5px">25</span> <span style="color: skyblue;margin:0px 5px">$</span>
+                        <input type="radio" required name="normal_shiping" id="normal_shiping" data-shippingCharge="25" ><span class="shipping">3-4 Day Shipment</span> <span style="color: skyblue;margin:0px 2 5px" class="shipping">25</span> <span style="color: skyblue; margin:0px 0px" class="shipping">$</span>
                     </div>
                         
                     <div class="shiping_grp">
-                        <input type="radio" name="normal_shiping" id="normal_shiping" disabled><span>1 Day Shipment</span> <span style="color: skyblue; text-decoration:line-through;:0px 5px;text-decoration-color: var(--theme_color);">Not Available</span> 
+                        <input type="radio" required name="normal_shiping" id="normal_shiping" disabled><span class="shipping">1 Day Shipment</span> <span  class="shipping" style="color: skyblue; text-decoration:line-through;:0px 5px;text-decoration-color: var(--theme_color);">Not Available</span> 
                     </div>
                 </td>
                 </tr>
@@ -109,108 +109,123 @@
 
 
         <div class="leftformwrapper">
-            <h2 class="bill_heading">Shipping Address</h2>
+            <h2 class="bill_heading">Billing Address</h2>
             <form id="form1">
                 <div class="input" id="first_last_wrapper" style="flex-direction: row;gap:20px;">
                     <label for="">First Name</label>
-                    <input type="text" placeholder="Firstname" name="firstname"  required>
+                    <input type="text" required placeholder="Firstname" name="firstname"  required>
                     <label for="">Last Name</label>
-                    <input type="text" placeholder="Lastname" name="lastname"  required>
+                    <input type="text" required placeholder="Lastname" name="lastname"  required>
                 </div>
 
                 <div class="input">
                     <label for="">Number</label>
-                    <input type="number" placeholder="Phone Number" name="phone_number" required>
+                    <input type="number" required placeholder="Phone Number" name="phone_number" required>
                 </div>
 
                 <div class="input">
                     <label for="">Email</label>
-                    <input type="email" placeholder="Email" name="email" required>
+                    <input type="email" required placeholder="Email" name="email" required>
                 </div>
 
                 <div class="input">
                     <label for="date" style="display: block">Date of Birth</label>
-                    <input type="date" name="date" required>
+                    <input type="date" required name="date" required>
                 </div>
 
                 <div class="input">
                     <label for="">Address</label>
-                    <input type="text" class="shipping_address"   placeholder="Address" name="address" required>
+                    <input type="text" required class="shipping_address"  placeholder="Address" name="address" required>
                 </div>
 
                 <div class="input">
                     <label for="city">City</label>
-                    <input type="text" class="shipping_city" placeholder="City" name="city" required>
+                    <input type="text" required class="shipping_city" placeholder="City" name="city" required>
                 </div>
 
                 <div class="input">
                     <label for="">Country</label>
-                    <input type="text" placeholder="Country" class="shipping_Country" name="country" required>
+                    <input type="text" required placeholder="Country" class="shipping_Country" name="country" required>
                 </div>
 
                 <div class="state_input" style="background: ;">
 
                     <div class="state">
                         <label for="">State</label>
-                        <input style="padding:10px" class="shipping_state" type="text" placeholder="State" name="state" required>
+                        <input style="padding:10px" class="shipping_state" type="text" required placeholder="State" name="state" required>
                     </div>
 
                     <div class="state">
                         <label for="">Zip/Postal Code</label>
-                        <input type="text" class="shipping_zip" style="padding:10px" placeholder="Zip" name="zip" required>
+                        <input type="text" required class="shipping_zip" style="padding:10px" placeholder="Zip" name="zip" required>
                     </div>
                 </div>
 
                 
 					<div class="checkbox">
-						<input class="checked" type="checkbox">	
+						<input class="checked" type="checkbox" required>	
 						<label>
-							<strong>Is the Billing Address the same as the Shipping Address?</strong>
+							<strong>Is the Shipping Address the same as the Billing Address?</strong>
 						</label>
 					</div>
 
               
 
                 <div class="shipping">
-					<h3 style="margin: 4% 0px;padding-left:20px">Billing Address</h3>
+					<h3 style="margin: 4% 0px;padding-left:20px">Shipping Address</h3>
 
                     <div class="input">
                         <label for="">Address</label>
-                        <input type="text" placeholder="Address" name="_shipping_address" class="billing_address" required>
+                        <input type="text" required placeholder="Address" name="_shipping_address" class="billing_address" required>
                     </div>
     
                     <div class="input">
                         <label for="city">City</label>
-                        <input type="text" class="billing_city" placeholder="City" name="billing_city" required>
+                        <input type="text" required class="billing_city" placeholder="City" name="billing_city" required>
                     </div>
     
                     <div class="input">
                         <label for="">Country</label>
-                        <input type="text" class="billing_country" placeholder="Country" name="billing_country" required>
+                        <input type="text" required class="billing_country" placeholder="Country" name="billing_country" required>
                     </div>
     
                     <div class="state_input" style="background: ;">
     
                         <div class="state">
                             <label for="">State</label>
-                            <input style="padding:10px" class="billing_state" type="text" placeholder="State" name="billing_state" required>
+                            <input style="padding:10px" class="billing_state" type="text" required placeholder="State" name="billing_state" required>
                         </div>
     
                         <div class="state">
                             <label for="">Zip/Postal Code</label>
-                            <input type="text" class="billing_zip" style="padding:10px" placeholder="Zip" name="billing_zip" required>
+                            <input type="text" required="" class="billing_zip" style="padding:10px" placeholder="Zip" name="billing_zip" required>
                         </div>
 				
 				
 			</div>
 
+                <div class="button_wrapper" >
+
                 <div class="paybutton">
+                    <input type="checkbox" name="" id="">
                     <button id="paynow" class="paynow-paypal" type="button"> <span><i class="fa-brands fa-paypal"></i></span> Paypal<span style="color: white;padding:0px 10px" class="toPay">{{ $price }}</span></button>
+
                 </div>
 
                 <div class="paybutton">
-                    <button id="stripe_paynow" class="paynow-stripe" type="button"><span><i class="fa-brands fa-stripe-s"></i></span> Stipe<span style="color: white;padding:0px 10px" class="toPay-stripe">{{ $price }}</span></button>
+                    <input type="checkbox" name="" id="">  <button id="stripe_paynow" class="paynow-stripe" type="button"><span><i class="fa-brands fa-stripe-s"></i></span> Stipe<span style="color: white;padding:0px 10px" class="toPay-stripe">{{ $price }}</span></button>
+
+                
                 </div>
+
+
+                <div class="paybutton">
+                    <input type="checkbox" name="" id="">  <button id="card_paynow" class="paynow-stripe" type="button"><span><i class="fa-solid fa-credit-card"></i></span> Debit/Credit</button>
+                </div>
+
+
+
+            </div>
 
                 {{-- <div class="paypal_wrapper">
                     <div class="paypal">

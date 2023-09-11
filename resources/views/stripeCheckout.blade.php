@@ -1,6 +1,4 @@
-@extends('layout.main')
 
-@section('stripe')
 
 <div class="container">
     <div class="row justify-content-center">
@@ -186,4 +184,3 @@
     background-color: #0056b3; /* Slightly darker blue on hover */
 }
 </style>
-@endsection

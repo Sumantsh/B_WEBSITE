@@ -14,7 +14,7 @@ $(document).ready(function() {
             zip: $("[name=zip]").val()
         };
 
-        console.log(data);
+  
 
         fetch("/form-route", {
             method: "POST",
