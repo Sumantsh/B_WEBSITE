@@ -146,6 +146,17 @@ Route::post("/form-route", function(Request $request) {
     }
 }); 
 
+
+Route::post("/form-route-paypal", function(Request $request) {
+    try {
+        Session()->put('orderdata', $request->all());
+        return response()->json(['message' => 'Success']);
+    } catch (\Exception $e) {
+        // Log the exception or handle it appropriately
+        return response()->json(['error' => 'Something went wrong'], 500);
+    }
+}); 
+
 Route::get('/paypal/create-payment', [PayPalPaymentController::class, 'createPayment'])->name('paypal.create');
 Route::get('/paypal/success', [PayPalPaymentController::class, 'success'])->name('paypal.success');
 Route::get('/paypal/cancel',  [PayPalPaymentController::class, 'cancel'])->name('paypal.cancel');

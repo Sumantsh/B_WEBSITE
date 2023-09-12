@@ -13,7 +13,11 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.12",
         "paypal/paypal-checkout-sdk": "^1.0",
+
         "phpmailer/phpmailer": "^6.8",
+
+        "paypal/rest-api-sdk-php": "*",
+      
         "stripe/stripe-php": "*"
     },
     "require-dev": {

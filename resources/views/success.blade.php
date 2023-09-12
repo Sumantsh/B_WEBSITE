@@ -39,12 +39,11 @@
                     <h2 >Shipping Address</h2>
 
                     <div class="shipping_details">
-                        <p> <span class="first_span">First Name:</span> <span class="last_span">Rajesh</span></p>
-                        <p><span class="first_span">Last Name: </span><span class="last_span">Kumar</span></p>
-                        <p><span class="first_span">Address: </span><span class="last_span">Rdc Sector 23 Ghaziabad 201001</span></p>
-                        <p><span class="first_span">Email: </span><span class="last_span">testsh0gmail.com</span></p>
-                        <p><span class="first_span">Phone Number: </span><span class="last_span">9898989898</span></p>
-                   
+                        <p> <span class="first_span">First Name:</span> <span class="last_span">{{$shippingAddress['firstname']}}</span></p>
+                        <p><span class="first_span">Last Name: </span><span class="last_span">{{$shippingAddress['lastname']}}</span></p>
+                        <p><span class="first_span">Address: </span><span class="last_span">{{$shippingAddress['address'] . ", ". $shippingAddress['state'] . ", " . $shippingAddress['country'] . ", " . $shippingAddress['zip']}}</span></p>
+                        <p><span class="first_span">Email: </span><span class="last_span">{{$shippingAddress['email']}}</span></p>
+                        <p><span class="first_span">Phone Number: </span><span class="last_span">{{$shippingAddress['phoneNumber']}}</span></p>
                     </div>
 
                 </div>
@@ -54,7 +53,7 @@
 
                     <div class="order_id">
                         <h2 class="order_id_title">"ORDER ID"</h2>
-                        <h2 class="order_id_number" style="border: none">134545</h2>
+                        <h2 class="order_id_number" style="border: none">{{$orderId}}</h2>
                     </div>
                 </div>
         
