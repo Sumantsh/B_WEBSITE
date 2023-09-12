@@ -20,10 +20,11 @@ return new class extends Migration
             $table->string("name");
             $table->string("email");
             $table->string("phone");
-            $table->string("address");
+            $table->string("shipping_address");
+            $table->string("billing_address");
             $table->integer("prdID")->nullable();
             $table->integer("qty")->nullable();
-            $table->integer("mg")->nullable();
+            $table->string("mg")->nullable();
             $table->integer('pulse')->nullable();
         });
     }

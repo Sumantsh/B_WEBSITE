@@ -85,7 +85,7 @@
                     <td class="radio_td">
                         <div class="shiping_grp">
                             <input type="radio"  name="normal_shiping" id="normal_shiping"
-                                data-shippingCharge="12" checked><span class="shipping">5-10 Day Shipment</span> <span
+                                data-shippingCharge="15" checked><span class="shipping">5-10 Day Shipment</span> <span
                                 class="shipping" style="color: skyblue;margin:0px 10px">15</span>
                             <span class="shipping" style="color: skyblue;margin:0px 0px">$</span>
                         </div>
@@ -151,19 +151,26 @@
             </div>
 
             <div class="input">
-                <label for="">Address</label>
-                <input type="text" required class="shipping_address" placeholder="Address" name="address"
+                <label for="">Address Line 1</label>
+                <input type="text" required class="billing_address_line1" placeholder="Address Line 1" name="billing_address_line1"
+                    required>
+            </div>
+
+
+            <div class="input">
+                <label for="">Address Line 2</label>
+                <input type="text" required class="billing_address_line2" placeholder="Address Line 2" name="billing_address_line2"
                     required>
             </div>
 
             <div class="input">
                 <label for="city">City</label>
-                <input type="text" required class="shipping_city" placeholder="City" name="city" required>
+                <input type="text" required class="billing_city" placeholder="City" name="billing_city" required>
             </div>
 
             <div class="input">
                 <label for="">Country</label>
-                <input type="text" required placeholder="Country" class="shipping_Country" name="country"
+                <input type="text" required placeholder="Country" class="billing_country" name="billing_country"
                     required>
             </div>
 
@@ -171,14 +178,14 @@
 
                 <div class="state">
                     <label for="">State</label>
-                    <input style="padding:10px" class="shipping_state" type="text" required placeholder="State"
-                        name="state" required>
+                    <input style="padding:10px" class="billing_state" type="text" required placeholder="State"
+                        name="billing_state" required>
                 </div>
 
                 <div class="state">
                     <label for="">Zip/Postal Code</label>
-                    <input type="text" required class="shipping_zip" style="padding:10px" placeholder="Zip"
-                        name="zip" required>
+                    <input type="text" required class="billing_zip" style="padding:10px" placeholder="Zip"
+                        name="billing_zip" required>
                 </div>
             </div>
 
@@ -194,34 +201,41 @@
                 <h3 style="margin: 4% 0px;padding-left:20px">Shipping Address</h3>
 
                 <div class="input">
-                    <label for="">Address</label>
-                    <input type="text" required placeholder="Address" name="_shipping_address"
-                        class="billing_address" required>
+                    <label for="">Address Line 1</label>
+                    <input type="text" required class="shipping_address_line1" placeholder="Address Line 1" name="shipping_address_line1"
+                        required>
+                </div>
+    
+    
+                <div class="input">
+                    <label for="">Address Line 2</label>
+                    <input type="text" required class="shipping_address_line2" placeholder="Address Line 2" name="shipping_address_line2"
+                        required>
                 </div>
 
                 <div class="input">
                     <label for="city">City</label>
-                    <input type="text" required class="billing_city" placeholder="City" name="billing_city"
+                    <input type="text" required class="shipping_city" placeholder="City" name="shipping_city"
                         required>
                 </div>
 
                 <div class="input">
                     <label for="">Country</label>
-                    <input type="text" required class="billing_country" placeholder="Country"
-                        name="billing_country" required>
+                    <input type="text" required class="shipping_country" placeholder="Country"
+                        name="shipping_country" required>
                 </div>
 
                 <div class="state_input" style="background: ;">
                     <div class="state">
                         <label for="">State</label>
-                        <input style="padding:10px" class="billing_state" type="text" required
-                            placeholder="State" name="billing_state" required>
+                        <input style="padding:10px" class="shipping_state" type="text" required
+                            placeholder="State" name="shipping_state" required>
                     </div>
 
                     <div class="state">
                         <label for="">Zip/Postal Code</label>
-                        <input type="text" required="" class="billing_zip" style="padding:10px"
-                            placeholder="Zip" name="billing_zip" required>
+                        <input type="text" required="" class="shipping_zip" style="padding:10px"
+                            placeholder="Zip" name="shipping_zip" required>
                     </div>
                 </div>
         </form>
@@ -238,7 +252,6 @@
             if (radio[i].checked) {
                 document.querySelector(".total-price").innerHTML = Number(document.querySelector(".subtotal-price")
                     .innerHTML) + Number(radio[i].dataset.shippingcharge);
-                document.querySelector(".toPay").innerHTML = document.querySelector(".total-price").innerHTML;
                 document.querySelector(".toPay-stripe").innerHTML = document.querySelector(".total-price").innerHTML;
             }
         }
@@ -247,60 +260,35 @@
         radio[i].addEventListener("change", () => {
             document.querySelector(".total-price").innerHTML = Number(document.querySelector(".subtotal-price")
                 .innerHTML) + Number(radio[i].dataset.shippingcharge);
-            document.querySelector(".toPay").innerHTML = document.querySelector(".total-price").innerHTML;
             document.querySelector(".toPay-stripe").innerHTML = document.querySelector(".total-price")
                 .innerHTML;
         })
     }
+
     updatePrices();
 
     const input_checked = document.querySelector('.checked');
-
     input_checked.addEventListener('click', () => {
-
         if (input_checked.checked) {
-            let shipping_address = document.querySelector('.shipping_address').value
-            let shipping_city = document.querySelector('.shipping_city').value
-            let shipping_Country = document.querySelector('.shipping_Country').value
-            let shipping_state = document.querySelector('.shipping_state').value
-            let shipping_zip = document.querySelector('.shipping_zip').value
+            let billing_line_one = document.querySelector('.billing_address_line1').value
+            let billing_line_two = document.querySelector('.billing_address_line2').value
+            let billing_city = document.querySelector('.billing_city').value
+            let billing_country = document.querySelector('.billing_country').value
+            let billing_state = document.querySelector('.billing_state').value
+            let billing_zip = document.querySelector('.billing_zip').value
 
-            document.querySelector('.billing_address').value = shipping_address
-            document.querySelector('.billing_city').value = shipping_city
-            document.querySelector('.billing_Country').value = shipping_Country
-            document.querySelector('.billing_state').value = shipping_state
-            document.querySelector('.billing_zip').value = shipping_zip
+            document.querySelector('.shipping_address_line1').value = billing_line_one
+            document.querySelector('.shipping_address_line2').value = billing_line_two
+            document.querySelector('.shipping_city').value = billing_city
+            document.querySelector('.shipping_country').value = billing_country
+            document.querySelector('.shipping_state').value = billing_state
+            document.querySelector('.shipping_zip').value = billing_zip
         }
     })
 </script>
-<script>
-    const paymentBtnContainer = document.getElementById('paypal-button-container');
-    paymentBtnContainer.addEventListener('click', function(event) {
-        // Get all form fields
-        var formFields = document.querySelectorAll('input[required]');
-        console.log(formFields.length);
-        console.log("hello");
-
-        // Flag to track if form is valid
-        var formIsValid = true;
-
-        formFields.forEach(function(field) {
-            if (field.value.trim() === '') {
-                formIsValid = false;
-                alert(
-                'Please fill out all required fields.'); // You can use a more sophisticated UI for this
-                event.preventDefault();
-                return false; // Stop further processing
-            }
-        });
-
-        if (formIsValid) {
-            // Continue with payment processing
-        }
-    });
-</script>
 <script src="https://www.paypal.com/sdk/js?client-id={{ config('services.paypal.clientID') }}&currency=USD"></script>
 <script>
+    const totalAmount = document.querySelector(".total-price").innerHTML;
 
     const validated = () => {
         const fields = document.querySelectorAll("input[required]");
@@ -325,7 +313,7 @@
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: '10'
+                        value: totalAmount
                     }
                 }],
                 application_context: {
@@ -335,15 +323,23 @@
         },
         onApprove: function(data, actions) {
             let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                const form_data = {
+            const form_data = {
                 firstname: $("[name=firstname]").val(),
                 lastname: $("[name=lastname]").val(),
                 phoneNumber: $("[name=phone_number]").val(),
                 email: $("[name=email]").val(),
-                address: $("[name=address]").val(),
-                country: $("[name=country]").val(),
-                state: $("[name=state]").val(),
-                zip: $("[name=zip]").val(),
+                billing_line_one: $("[name=billing_address_line1]").val(),
+                billing_line_two: $("[name=billing_address_line2]").val(),
+                billing_country: $("[name=billing_country]").val(),
+                billing_city: $("[name=billing_city]").val(),
+                billing_state: $("[name=billing_state]").val(),
+                billing_zip: $("[name=billing_zip]").val(),
+                shipping_line_one: $("[name=shipping_address_line1]").val(),
+                shipping_line_two: $("[name=shipping_address_line2]").val(),
+                shipping_country: $("[name=shipping_country]").val(),
+                shipping_city: $("[name=shipping_city]").val(),
+                shipping_state: $("[name=shipping_state]").val(),
+                shipping_zip: $("[name=shipping_zip]").val(),
             };
             
                 return actions.order.capture().then(function(details) {
@@ -364,9 +360,9 @@
                             formData: form_data
                         })
                     }).then(status).then((response) => {
-                        window.location.href = "/paypal/success";
+                        window.location.href = "{{ route('paypal.success') }}";
                     }).catch((err) => {
-                        window.location.href = "/paypal/error";
+                        window.location.href = "{{ route('paypal.error') }}"; 
                     })
                 }
             });
