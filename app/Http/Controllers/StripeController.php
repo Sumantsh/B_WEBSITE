@@ -49,9 +49,7 @@ class StripeController extends Controller
         ]); 
     }
 
-    public function success()
-    {
-
+    public function success() {
         $orderId = "stripe" . Str::uuid();
 
         $formdata = Session::get('formdata');
@@ -60,7 +58,7 @@ class StripeController extends Controller
         foreach ($orderDetails as $value) {
             NewOrder::create([
                 'orderID' => $orderId,
-                'name' => $formdata['name'],
+                'name' => $formdata['firstname'] . " " .  $formdata['lasttname'],
                 'email' => $formdata['email'],
                 'phone' => $formdata['phoneNumber'],
                 'address' => $formdata['address'] . ", ". $formdata['state'] . ", " . $formdata['country'] . ", " . $formdata['zip'],
@@ -71,7 +69,9 @@ class StripeController extends Controller
             ]);
         }
         
-        Session::flash('success', 'Payment successful! Thank you for your purchase.');
-        return redirect()->route('https://edlifecare.com/'); // Replace 'home' with the desired route after successful payment
+        return view('success', [
+            'orderId' => $orderId,
+            'shippingAddress' => $formdata
+        ]);
     }
 }

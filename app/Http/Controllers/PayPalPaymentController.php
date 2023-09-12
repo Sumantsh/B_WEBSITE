@@ -1,8 +1,16 @@
 <?php
 namespace App\Http\Controllers;
 
+use PayPal\Api\Payer;
+use PayPal\Api\Amount;
+use PayPal\Api\Payment;
 use App\Models\NewOrder;
+use PayPal\Api\Transaction;
+use PayPal\Rest\ApiContext;
 use Illuminate\Http\Request;
+use PayPal\Api\RedirectUrls;
+
+use PayPal\Auth\OAuthTokenCredential;
 use Illuminate\Support\Facades\Session;
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
 use PayPalCheckoutSdk\Core\SandboxEnvironment;
@@ -11,16 +19,6 @@ use PayPalCheckoutSdk\Orders\OrdersCreateRequest;
 
 class PayPalPaymentController extends Controller
 {
-    private $client;
-
-    public function __construct()
-    {
-        $environment = config('app.env') === 'production'
-            ? new ProductionEnvironment(env('paypal.live_client_id'), env('paypal.live_client_secret'))
-            : new SandboxEnvironment(env('PAYPAL_SANDBOX_CLIENT_ID'), env('PAYPAL_SANDBOX_CLIENT_SECRET'));
-
-        $this->client = new PayPalHttpClient($environment);
-    }
 
     public function error()
     {
@@ -28,68 +26,6 @@ class PayPalPaymentController extends Controller
         return view('error', compact('errorMessage'));
     }
 
-    public function createPayment()
-    {
-        $request = new OrdersCreateRequest();
-        $request->prefer('return=representation');
-        $data = Session()->get('cr_data');
-        $formdata = Session()->get('formdata');
-        $total = 0;
-        foreach($data as $item) {
-            $total += ($item['price'] * $item['jaq_r']);
-        };
-
-        $total += $formdata['shipping'];
-
-        $request->body = [
-            'intent' => 'CAPTURE',
-            'purchase_units' => [
-                [
-                    'amount' => [
-                        'currency_code' => 'USD',
-                        'value' => round($total, 2), // Replace with the actual amount
-                    ],
-                ],
-            ],
-            'application_context' => [
-                'cancel_url' => route('paypal.cancel'),
-                'return_url' => route('paypal.success'),
-            ],
-        ];
-
-        try {
-            // $response = $this->client->execute($request);
-            // $paypalLink = collect($response->result)->get('links')->where('rel', 'approve')->first()->href;
-            // return redirect()->away($paypalLink);
-
-
-            // $response = $this->client->execute($request);
-            // $links = $response->result->links;
-            // $approveLink = collect($links)->where('rel', 'approve')->first()['href'];
-            // return redirect()->away($approveLink);
-
-            $response = $this->client->execute($request);
-            $links = $response->result->links;
-
-            $approveLink = collect($links)->where('rel', 'approve')->first();
-            if ($approveLink) {
-                $approveLink = $approveLink->href;
-                return redirect()->away($approveLink);
-            } else {
-                // Handle the case when 'approve' link is not found in the response
-                Session::flash('error', 'Approval link not found in the PayPal response.');
-                return redirect()->route('paypal.error');
-            }
-        } catch (\PayPalHttp\HttpException $e) {
-            // Handle PayPal HTTP exceptions
-            Session::flash('error', 'PayPal API Error: ' . $e->getMessage());
-            return redirect()->route('paypal.error');
-        } catch (\Exception $e) {
-            // Handle other exceptions
-            Session::flash('error', 'An unexpected error occurred: ' . $e->getMessage());
-            return redirect()->route('paypal.error');
-        }
-    }
 
     // Other methods for handling responses from PayPal
     public function cancel()
@@ -102,16 +38,16 @@ class PayPalPaymentController extends Controller
 
     public function success(Request $request)
     {
+        $orderData = session()->get('orderdata');
+        $orderId = $orderData['orderId'];
 
-        $orderId = $request->input('token');
-
-        $formdata = Session::get('formdata');
+        $formdata = $orderData['formData'];
         $orderDetails = Session::get('cr_data');
 
         foreach ($orderDetails as $value) {
             NewOrder::create([
                 'orderID' => $orderId,
-                'name' => $formdata['name'],
+                'name' => $formdata['firstname'] . " " . $formdata['lastname'],
                 'email' => $formdata['email'],
                 'phone' => $formdata['phoneNumber'],
                 'address' => $formdata['address'] . ", ". $formdata['state'] . ", " . $formdata['country'] . ", " . $formdata['zip'],
@@ -122,7 +58,9 @@ class PayPalPaymentController extends Controller
             ]);
         }
         
-        Session::flash('success', 'Payment successful! Thank you for your purchase.');
-        return view('success'); // Replace 'home' with the desired route after successful payment
+        return view('success', [
+            'orderId' => $orderId,
+            'shippingAddress' => $formdata
+        ]); 
     }
 }
