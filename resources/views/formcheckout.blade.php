@@ -83,6 +83,7 @@
                     <td class="subtotal">Shipping</td>
 
                     <td class="radio_td">
+
                         <div class="shiping_grp">
                             <input type="radio"  name="normal_shiping" id="normal_shiping"
                                 data-shippingCharge="12" checked><span class="shipping">5-10 Day Shipment</span> <span
@@ -101,6 +102,7 @@
                             <input type="radio"  name="normal_shiping" id="normal_shiping" disabled><span
                                 class="shipping">1 Day Shipment</span> <span class="shipping"
                                 style="color: skyblue; text-decoration:line-through;:0px 5px;text-decoration-color: var(--theme_color);">Not
+
                                 Available</span>
                         </div>
                     </td>
@@ -114,9 +116,11 @@
 
             <div id="paypal-button-container"></div>
 
+
             <div class="paybutton">
                 <button id="stripe_paynow" class="paynow-stripe" type="button"><span><i class="fa-brands fa-stripe-s"></i></span>Stipe<span style="color: white;padding:0px 10px" class="toPay-stripe">{{ $price }}</span></button>
             </div>
+
 
             <div class="card">
                 <img src="{{ asset('img/visa_master.png') }}" alt="">
@@ -127,12 +131,14 @@
 
     <div class="leftformwrapper">
         <h2 class="bill_heading">Billing Address</h2>
+
         <form id="form1">
             <div class="input" id="first_last_wrapper" style="flex-direction: row;gap:20px;">
                 <label for="">First Name</label>
                 <input type="text" required placeholder="Firstname" name="firstname" required>
                 <label for="">Last Name</label>
                 <input type="text" required placeholder="Lastname" name="lastname" required>
+
             </div>
 
             <div class="input">
@@ -184,7 +190,9 @@
 
 
             <div class="checkbox">
-                <input class="checked" type="checkbox" >
+
+                <input class="billing_checked" type="checkbox">
+
                 <label>
                     <strong>Is the Shipping Address the same as the Billing Address?</strong>
                 </label>
@@ -223,15 +231,32 @@
                         <input type="text" required="" class="billing_zip" style="padding:10px"
                             placeholder="Zip" name="billing_zip" required>
                     </div>
+
+
+
                 </div>
+
+              
+
         </form>
 
+
+                    </div>
 
     </div>
 </div>
 
+
+                    <div class="paybutton">
+                        <input type="checkbox" name="" id=""> <button id="card_paynow"
+                            class="paynow-stripe" type="button"><span><i class="fa-solid fa-credit-card"></i></span>
+                            Debit/Credit</button>
+                    </div>
+               
+
 <script>
     const radio = document.getElementsByName("normal_shiping");
+
 
     function updatePrices() {
         for (let i = 0; i < radio.length; i++) {
@@ -256,7 +281,9 @@
 
     const input_checked = document.querySelector('.checked');
 
+
     input_checked.addEventListener('click', () => {
+
 
         if (input_checked.checked) {
             let shipping_address = document.querySelector('.shipping_address').value
@@ -264,6 +291,7 @@
             let shipping_Country = document.querySelector('.shipping_Country').value
             let shipping_state = document.querySelector('.shipping_state').value
             let shipping_zip = document.querySelector('.shipping_zip').value
+
 
             document.querySelector('.billing_address').value = shipping_address
             document.querySelector('.billing_city').value = shipping_city
