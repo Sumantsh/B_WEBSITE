@@ -34,5 +34,10 @@ return [
     "stripe" => [
         'secret' => env('STRIPE_SECRET'),
         'key' => env('STRIPE_KEY')
+    ],
+    "paypal" => [
+        'clientID' => env('PAYPAL_SANDBOX_CLIENT_ID'),
+        "clientSecret" => env('PAYPAL_SANDBOX_CLIENT_SECRET'),
+        "mode" => env('PAYPAL_MODE')
     ]
 ];

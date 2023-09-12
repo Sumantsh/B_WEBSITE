@@ -1,38 +1,12 @@
 $(document).ready(function() {
-    $(".paynow-paypal").click((e) => {
-        e.preventDefault();
-
-        const data = {
-            name: $("[name=firstname]").val() + " " + $("[name=lastname]").val(),
-            phoneNumber: $("[name=phone_number]").val(),
-            email: $("[name=email]").val(),
-            address: $("[name=address]").val(),
-            country: $("[name=country]").val(),
-            state: $("[name=state]").val(),
-            zip: $("[name=zip]").val(),
-            shipping: $(".toPay").text() - $(".prd-total").text()
-        };
-
-        fetch("/form-route", {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            },
-            redirect: "follow"
-        }).then(async (response) => {
-            window.location.href = "/paypal/create-payment";
-        }).catch((err) => console.error(err));
-    });
-
-
+    console.log($(".paynow-stripe"));
     $(".paynow-stripe").click((e) => {
         console.log($(".paynow-stripe"));
         e.preventDefault();
 
         const data = {
-            name: $("[name=firstname]").val() + " " + $("[name=lastname]").val(),
+            firstname: $("[name=firstname]").val(),
+            lastname: $("[name=lastname]").val(),
             phoneNumber: $("[name=phone_number]").val(),
             email: $("[name=email]").val(),
             address: $("[name=address]").val(),
@@ -42,17 +16,33 @@ $(document).ready(function() {
             shipping: $(".toPay").text() - $(".prd-total").text()
         };
 
-        fetch("/form-route", {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            },
-            redirect: "follow"
-        }).then(async (response) => {
-            window.location.href = "/stripe/create-payment";
-        }).catch((err) => console.error(err));
+        const validated = () => {
+            const fields = document.querySelectorAll("input[required]");
+            for(let i = 0; i < fields.length; i++) {
+                if(fields[i].value) {
+                    continue;
+                } else {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        if(validated()) {
+            fetch("/form-route", {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                },
+                redirect: "follow"
+            }).then(async (response) => {
+                window.location.href = "/stripe/create-payment";
+            }).catch((err) => console.error(err));
+        } else {
+            alert("Please fill in all the fields carefully");
+        }
     });
 
 
