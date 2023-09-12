@@ -9,6 +9,7 @@
                 </div>
                 <div class="card-body">
                     <form id="payment-form">
+                        @csrf
                         <div class="form-group">
                             <label for="card-element">Card Information</label>
                             <div id="card-element" class="form-control">
@@ -91,10 +92,27 @@
 
             } else {
                 // Payment succeeded, handle the success here.
-                // You can send an AJAX request to the server to complete the order.
+                const csrfTokenInput = document.querySelector('input[name="_token"]');
+                const csrfToken = csrfTokenInput.value;
 
-                // Redirect to the success page for now.
-                window.location.href = "{{ route('payment.success') }}";
+                // You can send an AJAX request to the server to complete the order.
+                fetch("{{ route('stripe.order') }}", {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json',
+                        "Accept": "application/json, text-plain, */*",
+                        "X-Requested-With": "XMLHttpRequest",
+                        "X-CSRF-TOKEN": csrfToken
+                    },
+                    body: JSON.stringify({
+                        orderId: result.paymentIntent.id,
+                        orderStatus: result.paymentIntent.status
+                    })
+                }).then(() => {
+                    window.location.href = "{{ route('payment.success') }}";
+                }).catch(err => {
+                    console.error(err);
+                })
             }
         });
     });

@@ -36,31 +36,33 @@ class PayPalPaymentController extends Controller
     }
 
 
-    public function success(Request $request)
+    public function success()
     {
         $orderData = session()->get('orderdata');
-        $orderId = $orderData['orderId'];
 
-        $formdata = $orderData['formData'];
-        $orderDetails = Session::get('cr_data');
+        if($orderData) {
+            $orderId = $orderData['orderId'];
+            $formdata = $orderData['formData'];
+            $orderDetails = Session::get('cr_data');
 
-        foreach ($orderDetails as $value) {
-            NewOrder::create([
-                'orderID' => $orderId,
-                'name' => $formdata['firstname'] . " " . $formdata['lastname'],
-                'email' => $formdata['email'],
-                'phone' => $formdata['phoneNumber'],
-                'address' => $formdata['address'] . ", ". $formdata['state'] . ", " . $formdata['country'] . ", " . $formdata['zip'],
-                'pulse' => $value['hg_e3'],
-                'qty' => $value['jaq_r'],
-                'mg' => $value['asgf'],
-                'prdID' => $value['x_fre']
-            ]);
+            foreach ($orderDetails as $value) {
+                NewOrder::create([
+                    'orderID' => $orderId,
+                    'name' => $formdata['firstname'] . " " . $formdata['lastname'],
+                    'email' => $formdata['email'],
+                    'phone' => $formdata['phoneNumber'],
+                    'shipping_address' => $formdata['shipping_line_one'] . ", ". $formdata['shipping_line_two']  . ", " . $formdata['shipping_state'] . ", " . $formdata['shipping_city']  . ", " . $formdata['shipping_country'] . ", " . $formdata['shipping_zip'],
+                    'billing_address' => $formdata['billing_line_one'] . ", " . $formdata['billing_line_two'] . ", ". $formdata['billing_state'] . ", " . $formdata['billing_city']  . ", " . $formdata['billing_country'] . ", " . $formdata['billing_zip'],
+                    'pulse' => $value['hg_e3'],
+                    'qty' => $value['jaq_r'],
+                    'mg' => $value['asgf'],
+                    'prdID' => $value['x_fre']
+                ]);
+            }
+            
+            return redirect()->route('success.paypal.page');
+        } else {
+            abort(404, 'Requested Page Not Found');
         }
-        
-        return view('success', [
-            'orderId' => $orderId,
-            'shippingAddress' => $formdata
-        ]); 
     }
 }

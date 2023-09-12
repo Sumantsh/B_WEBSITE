@@ -26,12 +26,13 @@ class StripeController extends Controller
 
 
         $customer = Customer::create([
-            'name' => $formdata['firstname']. ' ' . $formdata['lastname'],
+
+            'name' => $formdata['firstname'] . ", " . $formdata['lastname'],
             'address' => [
-                'line1'       => $formdata['address'],
-                'postal_code' => $formdata['zip'],
-                'city'        => $formdata['city'],
-                'state'       => $formdata['state'],
+                'line1'       => $formdata['billing_line_one'],
+                'postal_code' => $formdata['billing_zip'],
+                'city'        => $formdata['billing_city'],
+                'state'       => $formdata['billing_state'],
                 'country'     => "US",
             ],
         ]);
@@ -49,29 +50,39 @@ class StripeController extends Controller
         ]); 
     }
 
+    public function order(Request $request) {
+        $orderDetails = $request->all();
+
+        session()->put('stripeOrder', $orderDetails);
+        return response()->json(['message' => 'Order Processed'], 201);
+    }
+
     public function success() {
-        $orderId = "stripe" . Str::uuid();
+        $stripeOrder = session()->get('stripeOrder');
 
-        $formdata = Session::get('formdata');
-        $orderDetails = Session::get('cr_data');
+        if($stripeOrder) {
+            if($stripeOrder['orderStatus'] === "succeeded") {
+                $formdata = Session::get('formdata');
+                $orderDetails = Session::get('cr_data');
 
-        foreach ($orderDetails as $value) {
-            NewOrder::create([
-                'orderID' => $orderId,
-                'name' => $formdata['firstname'] . " " .  $formdata['lasttname'],
-                'email' => $formdata['email'],
-                'phone' => $formdata['phoneNumber'],
-                'address' => $formdata['address'] . ", ". $formdata['state'] . ", " . $formdata['country'] . ", " . $formdata['zip'],
-                'pulse' => $value['hg_e3'],
-                'qty' => $value['jaq_r'],
-                'mg' => $value['asgf'],
-                'prdID' => $value['x_fre']
-            ]);
-        }
-        
-        return view('success', [
-            'orderId' => $orderId,
-            'shippingAddress' => $formdata
-        ]);
+                foreach ($orderDetails as $value) {
+                    NewOrder::create([
+                        'orderID' => $stripeOrder['orderId'],
+                        'name' => $formdata['firstname'] . " " .  $formdata['lastname'],
+                        'email' => $formdata['email'],
+                        'phone' => $formdata['phoneNumber'],
+                        'shipping_address' => $formdata['shipping_line_one'] . ", ". $formdata['shipping_line_two']  . ", " . $formdata['shipping_state'] . ", " . $formdata['shipping_city']  . ", " . $formdata['shipping_country'] . ", " . $formdata['shipping_zip'],
+                        'billing_address' => $formdata['billing_line_one'] . ", " . $formdata['billing_line_two'] . ", ". $formdata['billing_state'] . ", " . $formdata['billing_city']  . ", " . $formdata['billing_country'] . ", " . $formdata['billing_zip'],
+                        'pulse' => $value['hg_e3'],
+                        'qty' => $value['jaq_r'],
+                        'mg' => $value['asgf'],
+                        'prdID' => $value['x_fre']
+                    ]);
+                } 
+                return redirect()->route('success.stripe.page');
+            }
+        } else {
+            abort('402');
+        }   
     }
 }

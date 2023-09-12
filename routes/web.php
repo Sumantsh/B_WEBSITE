@@ -44,10 +44,6 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/success', function () {
-    return view('success');
-});
-
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -162,8 +158,43 @@ Route::get('/paypal/success', [PayPalPaymentController::class, 'success'])->name
 Route::get('/paypal/cancel',  [PayPalPaymentController::class, 'cancel'])->name('paypal.cancel');
 Route::get('/paypal/error', [PayPalPaymentController::class, 'error'])->name('paypal.error');
 
+Route::post("/stripe/order", [StripeController::class, 'order'])->name("stripe.order");
 Route::get("/stripe/create-payment", [StripeController::class, 'createPayment'])->name('stripe.create');
 Route::get('/stripe/success', [StripeController::class, 'success'])->name('payment.success');
+
+
+Route::get("/success-page", function() {
+    $orderData = session()->get('orderdata');
+
+    if($orderData) {
+        $orderId = $orderData['orderId'];
+        $formdata = $orderData['formData'];
+
+        return view('success', [
+            'orderId' => $orderId,
+            'shippingAddress' => $formdata
+        ]); 
+    } else {
+        abort(404, "Requested Page Not Found");
+    }
+})->name('success.paypal.page');
+
+Route::get("/stripe-success-page", function() {
+    $orderDetails = session()->get('stripeOrder');
+    $formdata = session()->get('formdata');
+
+    if($orderDetails) {
+        $orderId = $orderDetails['orderId'];
+        $formdata = $formdata;
+
+        return view('success', [
+            'orderId' => $orderId,
+            'shippingAddress' => $formdata
+        ]); 
+    } else {
+        abort(404, "Requested Page Not Found");
+    }
+})->name('success.stripe.page');
 
 
 Route::post("/add-to-cart", [Cart::class, 'addToCart']);

@@ -41,7 +41,7 @@
                     <div class="shipping_details">
                         <p> <span class="first_span">First Name:</span> <span class="last_span">{{$shippingAddress['firstname']}}</span></p>
                         <p><span class="first_span">Last Name: </span><span class="last_span">{{$shippingAddress['lastname']}}</span></p>
-                        <p><span class="first_span">Address: </span><span class="last_span">{{$shippingAddress['address'] . ", ". $shippingAddress['state'] . ", " . $shippingAddress['country'] . ", " . $shippingAddress['zip']}}</span></p>
+                        <p><span class="first_span">Address: </span><span class="last_span">{{$shippingAddress['shipping_line_one'] . ", " . $shippingAddress['shipping_line_two'] . ", ". $shippingAddress['shipping_state'] . ", " . $shippingAddress['shipping_country'] . ", " . $shippingAddress['shipping_zip']}}</span></p>
                         <p><span class="first_span">Email: </span><span class="last_span">{{$shippingAddress['email']}}</span></p>
                         <p><span class="first_span">Phone Number: </span><span class="last_span">{{$shippingAddress['phoneNumber']}}</span></p>
                     </div>

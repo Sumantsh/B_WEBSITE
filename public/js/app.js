@@ -9,11 +9,19 @@ $(document).ready(function() {
             lastname: $("[name=lastname]").val(),
             phoneNumber: $("[name=phone_number]").val(),
             email: $("[name=email]").val(),
-            address: $("[name=address]").val(),
-            country: $("[name=country]").val(),
-            state: $("[name=state]").val(),
-            zip: $("[name=zip]").val(),
-            shipping: $(".toPay").text() - $(".prd-total").text()
+            billing_line_one: $("[name=billing_address_line1]").val(),
+            billing_line_two: $("[name=billing_address_line2]").val(),
+            billing_country: $("[name=billing_country]").val(),
+            billing_city: $("[name=billing_city]").val(),
+            billing_state: $("[name=billing_state]").val(),
+            billing_zip: $("[name=billing_zip]").val(),
+            shipping_line_one: $("[name=shipping_address_line1]").val(),
+            shipping_line_two: $("[name=shipping_address_line2]").val(),
+            shipping_country: $("[name=shipping_country]").val(),
+            shipping_city: $("[name=shipping_city]").val(),
+            shipping_state: $("[name=shipping_state]").val(),
+            shipping_zip: $("[name=shipping_zip]").val(),
+            shipping: $(".toPay-stripe").text() - $(".prd-total").text()
         };
 
         const validated = () => {
