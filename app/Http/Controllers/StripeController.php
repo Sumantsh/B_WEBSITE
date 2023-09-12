@@ -26,11 +26,11 @@ class StripeController extends Controller
 
 
         $customer = Customer::create([
-            'name' => $formdata['name'],
+            'name' => $formdata['firstname']. ' ' . $formdata['lastname'],
             'address' => [
                 'line1'       => $formdata['address'],
                 'postal_code' => $formdata['zip'],
-                'city'        => 'San Francisco',
+                'city'        => $formdata['city'],
                 'state'       => $formdata['state'],
                 'country'     => "US",
             ],

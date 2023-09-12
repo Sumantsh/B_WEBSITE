@@ -85,7 +85,7 @@
                     <td class="radio_td">
                         <div class="shiping_grp">
                             <input type="radio"  name="normal_shiping" id="normal_shiping"
-                                data-shippingCharge="12" checked><span class="shipping">5-10 Day Shipment</span> <span
+                                data-shippingCharge="15" checked><span class="shipping">5-10 Day Shipment</span> <span
                                 class="shipping" style="color: skyblue;margin:0px 10px">15</span>
                             <span class="shipping" style="color: skyblue;margin:0px 0px">$</span>
                         </div>
@@ -112,7 +112,11 @@
                 </tr>
             </table>
 
-            <div id="paypal-button-container"></div>
+            <div id="paypal_contanier">
+
+                <div id="paypal-button-container"></div>
+
+            </div>
 
             <div class="paybutton">
                 <button id="stripe_paynow" class="paynow-stripe" type="button"><span><i class="fa-brands fa-stripe-s"></i></span>Stipe<span style="color: white;padding:0px 10px" class="toPay-stripe">{{ $price }}</span></button>
@@ -128,6 +132,7 @@
     <div class="leftformwrapper">
         <h2 class="bill_heading">Billing Address</h2>
         <form id="form1">
+        @csrf
             <div class="input" id="first_last_wrapper" style="flex-direction: row;gap:20px;">
                 <label for="">First Name</label>
                 <input type="text" required placeholder="Firstname" name="firstname" required>
@@ -184,7 +189,7 @@
 
 
             <div class="checkbox">
-                <input class="checked" type="checkbox" >
+                <input class="shipping_checked" type="checkbox" >
                 <label>
                     <strong>Is the Shipping Address the same as the Billing Address?</strong>
                 </label>
@@ -224,6 +229,10 @@
                             placeholder="Zip" name="billing_zip" required>
                     </div>
                 </div>
+
+
+                
+
         </form>
 
 
@@ -238,7 +247,7 @@
             if (radio[i].checked) {
                 document.querySelector(".total-price").innerHTML = Number(document.querySelector(".subtotal-price")
                     .innerHTML) + Number(radio[i].dataset.shippingcharge);
-                document.querySelector(".toPay").innerHTML = document.querySelector(".total-price").innerHTML;
+          
                 document.querySelector(".toPay-stripe").innerHTML = document.querySelector(".total-price").innerHTML;
             }
         }
@@ -247,14 +256,15 @@
         radio[i].addEventListener("change", () => {
             document.querySelector(".total-price").innerHTML = Number(document.querySelector(".subtotal-price")
                 .innerHTML) + Number(radio[i].dataset.shippingcharge);
-            document.querySelector(".toPay").innerHTML = document.querySelector(".total-price").innerHTML;
+        
             document.querySelector(".toPay-stripe").innerHTML = document.querySelector(".total-price")
                 .innerHTML;
         })
     }
     updatePrices();
 
-    const input_checked = document.querySelector('.checked');
+    const input_checked = document.querySelector('.shipping_checked');
+
 
     input_checked.addEventListener('click', () => {
 
@@ -273,34 +283,10 @@
         }
     })
 </script>
-<script>
-    const paymentBtnContainer = document.getElementById('paypal-button-container');
-    paymentBtnContainer.addEventListener('click', function(event) {
-        // Get all form fields
-        var formFields = document.querySelectorAll('input[required]');
-        console.log(formFields.length);
-        console.log("hello");
-
-        // Flag to track if form is valid
-        var formIsValid = true;
-
-        formFields.forEach(function(field) {
-            if (field.value.trim() === '') {
-                formIsValid = false;
-                alert(
-                'Please fill out all required fields.'); // You can use a more sophisticated UI for this
-                event.preventDefault();
-                return false; // Stop further processing
-            }
-        });
-
-        if (formIsValid) {
-            // Continue with payment processing
-        }
-    });
-</script>
 <script src="https://www.paypal.com/sdk/js?client-id={{ config('services.paypal.clientID') }}&currency=USD"></script>
 <script>
+
+    const total_amount = document.querySelector(".total-price").innerHTML;
 
     const validated = () => {
         const fields = document.querySelectorAll("input[required]");
@@ -325,7 +311,7 @@
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: '10'
+                        value: total_amount
                     }
                 }],
                 application_context: {

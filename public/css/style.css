@@ -239,13 +239,13 @@ img {
 
 .paybutton #stripe_paynow {
     background:#635bff;
-    border-radius: 4px;
+    border-radius: 2px;
     color: white;
     font-weight: 600;
     letter-spacing: 1px;
-    width: 100%;
+    width: 80%;
     text-align: center;
-    padding: 10px 10px;
+    padding: 14px 10px;
     border: none;
 }
 .paybutton #card_paynow {
@@ -287,7 +287,7 @@ img {
 }
 
 .rightwrapper {
-    order: -1;
+    order: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -689,7 +689,17 @@ font-size: 1.4rem;
     background-color: #004AAD;
 }
 
-.button_wrapper {
+#paypal_contanier {
+    display: grid;
+    grid-template-columns: 80%;
+    place-content: center;
+    /* background-color: red; */
+    margin: 0px auto;
+    margin-top: 2%;
+}
+
+#paypal-button-container {
+    width: 100%;
 }
 
 @media (min-width:768px) {
